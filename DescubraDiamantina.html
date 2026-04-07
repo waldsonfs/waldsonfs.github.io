@@ -121,7 +121,7 @@
       will-change: transform;
     }
 
-    .background-section video {
+    .background-section img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -129,6 +129,13 @@
       position: absolute;
       top: 0;
       left: 0;
+    }
+    .hero-slide {
+      opacity: 0;
+      animation: heroSlideshow 12s infinite;
+    }
+    .hero-slide--two {
+      animation-delay: 6s;
     }
     
     .hero-overlay {
@@ -681,6 +688,11 @@
       0%, 100% { transform: translateX(-50%) translateY(0); }
       50%       { transform: translateX(-50%) translateY(8px); }
     }
+    @keyframes heroSlideshow {
+      0%, 45% { opacity: 1; }
+      50%, 95% { opacity: 0; }
+      100% { opacity: 1; }
+    }
 
     /* 
        RESPONSIVE
@@ -736,7 +748,8 @@
 
 <section id="hero">
   <div class="background-section" id="heroBg">
-     <video id="heroVideo" poster="./.imagens/catedral.png" autoplay loop muted playsinline preload="none" data-src=".imagens/Video.mp4" aria-label="Vídeo de destaque de Diamantina"></video>
+     <img class="hero-slide" src="./.imagens/Diamantina1.png" alt="Vista panorâmica de Diamantina" loading="eager" decoding="async"/>
+     <img class="hero-slide hero-slide--two" src="./.imagens/Diamantina2.png" alt="Paisagem histórica de Diamantina" loading="eager" decoding="async"/>
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -1216,7 +1229,6 @@ resetPreview();
  */
 const header = document.getElementById('header');
 const heroBg = document.getElementById('heroBg');
-const heroVideo = document.getElementById('heroVideo');
 let scrollTicking = false;
 
 function updateOnScroll() {
@@ -1234,25 +1246,6 @@ window.addEventListener('scroll', () => {
   requestAnimationFrame(updateOnScroll);
 }, { passive: true });
 updateOnScroll();
-
-/* 
-   PARALLAX
- */
-function carregarVideoHero() {
-  if (!heroVideo || heroVideo.dataset.loaded === 'true') return;
-  heroVideo.src = heroVideo.dataset.src;
-  heroVideo.dataset.loaded = 'true';
-  heroVideo.load();
-  heroVideo.play().catch(() => {});
-}
-
-if (heroVideo) {
-  if ('requestIdleCallback' in window) {
-    requestIdleCallback(carregarVideoHero, { timeout: 1500 });
-  } else {
-    window.setTimeout(carregarVideoHero, 800);
-  }
-}
 
 /* 
    FADE-IN ON SCROLL
