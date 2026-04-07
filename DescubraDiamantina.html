@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Descubra Diamantina</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+/* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bege:      #F9F7F2; 
+      --branco:     #FFFFFF;
+      --azul:       #0A1A2F; 
+      --dourado:    #B89548; 
+      --dourado-claro: #D4AF37;
+      --vinho:      #5C1A1A; 
+      --texto:      #1F1B18;
+      --sombra:     rgba(10, 26, 47, 0.15);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--bege);
+      color: var(--texto);
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bege); }
+    ::-webkit-scrollbar-thumb { background: var(--dourado); border-radius: 3px; }
+
+    /* 
+       HEADER / NAV
+     */
+    #header {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 900;
+      padding: 18px 5vw;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: all .4s ease;
+    }
+    #header.scrolled {
+      background: var(--azul);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+      padding: 12px 5vw;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--branco);
+      letter-spacing: .04em;
+      transition: color .4s;
+      text-decoration: none;
+    }
+
+    nav { display: flex; gap: 2rem; align-items: center; }
+    nav a {
+      font-size: .85rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.85);
+      text-decoration: none;
+      position: relative;
+      transition: color .3s;
+    }
+    nav a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: var(--dourado);
+      transition: width .35s ease;
+    }
+    nav a:hover { color: var(--dourado-claro); }
+    nav a:hover::after { width: 100%; }
+
+    /* hamburger */
+    .hamburger { display: none; flex-direction: column; gap: 5px; padding: 4px; }
+    .hamburger span {
+      display: block; width: 24px; height: 2px; background: var(--branco);
+      border-radius: 2px; transition: all .3s;
+    }
+    .mobile-menu {
+      display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+      background: var(--azul); z-index: 800; flex-direction: column;
+      align-items: center; justify-content: center; gap: 2.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Playfair Display', serif; font-size: 2rem;
+      color: var(--branco); text-decoration: none; letter-spacing: .04em;
+      transition: color .3s;
+    }
+    .mobile-menu a:hover { color: var(--dourado); }
+    .mobile-menu .close-btn {
+      position: absolute; top: 24px; right: 5vw;
+      font-size: 2rem; color: var(--branco); line-height: 1;
+      transition: color .3s;
+    }
+    .mobile-menu .close-btn:hover { color: var(--dourado); }
+
+    /* 
+       HERO
+     */
+    #hero {
+      position: relative; height: 100vh; min-height: 600px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    
+    .background-section {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      will-change: transform;
+    }
+
+    .background-section video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    
+    .hero-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(to bottom, rgba(10, 26, 47, 0.4) 0%, var(--azul) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center; padding: 0 5vw;
+      animation: fadeUp .9s ease both;
+    }
+    .hero-eyebrow {
+      font-size: .78rem; letter-spacing: .3em; text-transform: uppercase;
+      color: var(--dourado-claro); margin-bottom: 1.2rem;
+      font-weight: 600;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 700; line-height: 1.08;
+      color: var(--branco);
+      margin-bottom: 1.2rem;
+    }
+    .hero-title em { font-style: italic; color: var(--dourado); }
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      color: rgba(255,255,255,.78);
+      max-width: 540px; margin: 0 auto 2.4rem;
+      font-weight: 300; line-height: 1.6;
+    }
+    .btn-hero {
+      display: inline-flex; align-items: center; gap: .6rem;
+      padding: .85rem 2.2rem;
+      background: var(--dourado); color: var(--branco);
+      font-size: .82rem; font-weight: 700; letter-spacing: .15em;
+      text-transform: uppercase; border-radius: 2px;
+      transition: all .3s;
+      box-shadow: 0 8px 32px rgba(184, 149, 72, 0.3);
+    }
+    .btn-hero:hover {
+      background: transparent; border: 1px solid var(--dourado);
+      transform: translateY(-2px);
+    }
+    .hero-scroll-hint {
+      position: absolute; bottom: 2.4rem; left: 50%; transform: translateX(-50%);
+      z-index: 2; display: flex; flex-direction: column; align-items: center; gap: .5rem;
+      color: rgba(255,255,255,.55); font-size: .72rem; letter-spacing: .18em;
+      text-transform: uppercase; animation: bounce 2.4s infinite;
+    }
+    .scroll-line {
+      width: 1px; height: 36px; background: linear-gradient(to bottom, var(--dourado), transparent);
+    }
+
+    /* 
+       SECTION COMMONS
+     */
+    section { padding: 8rem 5vw; }
+    .section-header { text-align: center; margin-bottom: 3.5rem; }
+    .section-tag {
+      font-size: .75rem; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--dourado); font-weight: 700; display: block; margin-bottom: .6rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700; color: var(--azul);
+      line-height: 1.15;
+    }
+    .section-divider {
+      width: 80px; height: 3px;
+      background: var(--dourado);
+      margin: 1rem auto 0;
+    }
+    .fade-in { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* 
+       EVENTS GRID
+     */
+    #eventos { background: var(--branco); }
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2.5rem;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .event-card {
+      background: var(--bege);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid rgba(184, 149, 72, 0.1);
+      box-shadow: 0 4px 24px var(--sombra);
+      transition: all .35s ease;
+      cursor: pointer;
+    }
+    .event-card:hover { transform: translateY(-6px); box-shadow: 0 16px 48px rgba(10, 26, 47, 0.15); }
+    .card-img-wrap {
+      overflow: hidden; height: 220px; position: relative;
+    }
+    .card-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .55s ease;
+    }
+    .event-card:hover .card-img-wrap img { transform: scale(1.07); }
+    .card-badge {
+      position: absolute; top: 14px; left: 14px;
+      background: var(--azul); color: var(--dourado-claro);
+      font-size: .68rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; padding: .28rem .75rem;
+      border: 1px solid var(--dourado); border-radius: 2px;
+    }
+    .card-body { padding: 1.5rem; }
+    .card-date {
+      font-size: .76rem; color: var(--vinho); letter-spacing: .08em;
+      text-transform: uppercase; margin-bottom: .5rem; font-weight: 700;
+    }
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem; font-weight: 700;
+      color: var(--azul); margin-bottom: .7rem; line-height: 1.2;
+    }
+    .card-desc {
+      font-size: .88rem; line-height: 1.65;
+      color: var(--texto); margin-bottom: 1.2rem; opacity: 0.8;
+    }
+    .btn-card {
+      display: inline-flex; align-items: center; gap: .45rem;
+      font-size: .78rem; font-weight: 600; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--dourado);
+      border-bottom: 1.5px solid var(--dourado);
+      padding-bottom: 2px;
+      transition: all .3s;
+    }
+    .btn-card:hover { gap: .75rem; color: var(--azul); border-bottom-color: var(--azul); }
+    .btn-card svg { transition: transform .3s; }
+    .btn-card:hover svg { transform: translateX(3px); }
+
+    /* 
+       MODAL
+     */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(10, 26, 47, 0.85);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 2rem 5vw;
+      opacity: 0; pointer-events: none;
+      transition: opacity .35s ease;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: var(--branco);
+      border-radius: 4px;
+      max-width: 760px; width: 100%;
+      max-height: 90vh; overflow-y: auto;
+      box-shadow: 0 32px 80px rgba(10, 26, 47, 0.45);
+      transform: translateY(28px) scale(.97);
+      transition: transform .4s cubic-bezier(.16,1,.3,1);
+      position: relative;
+    }
+    .modal-overlay.open .modal { transform: translateY(0) scale(1); }
+    .modal-img { width: 100%; height: 300px; object-fit: cover; }
+    .modal-close {
+      position: absolute; top: 14px; right: 14px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--bege);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; color: var(--azul);
+      transition: background .3s, transform .3s;
+      z-index: 2;
+    }
+    .modal-close:hover { background: var(--dourado-claro); transform: rotate(90deg); color: var(--branco); }
+    .modal-body { padding: 2rem 2.4rem 2.4rem; }
+    .modal-tag {
+      font-size: .75rem; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--dourado); font-weight: 700; margin-bottom: .5rem;
+    }
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700;
+      color: var(--azul); margin-bottom: 1rem; line-height: 1.15;
+    }
+    .modal-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; line-height: 1.7;
+      color: var(--texto); margin-bottom: 1.5rem;
+    }
+    .modal-meta {
+      display: flex; flex-wrap: wrap; gap: .75rem 1.5rem;
+      padding: 1.2rem; background: var(--bege); border-radius: 4px;
+      margin-bottom: 1.5rem; border: 1px solid rgba(184, 149, 72, 0.1);
+    }
+    .modal-meta-item {
+      display: flex; align-items: center; gap: .5rem;
+      font-size: .84rem; color: var(--vinho); font-weight: 600;
+    }
+    .modal-meta-item span { color: var(--texto); font-weight: 500; }
+    .modal-tabs {
+      display: flex;
+      gap: .75rem;
+      margin-bottom: 1.2rem;
+      border-bottom: 1px solid rgba(184, 149, 72, 0.18);
+      padding-bottom: .9rem;
+    }
+    .modal-tab {
+      padding: .55rem 1rem;
+      border: 1px solid rgba(184, 149, 72, 0.28);
+      border-radius: 999px;
+      color: var(--azul);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      transition: all .3s ease;
+    }
+    .modal-tab:hover {
+      background: rgba(184, 149, 72, 0.08);
+      color: var(--dourado);
+    }
+    .modal-tab.active {
+      background: var(--azul);
+      border-color: var(--azul);
+      color: var(--branco);
+    }
+    .modal-tab-panel[hidden] { display: none; }
+    .modal-curiosidades h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; color: var(--azul);
+      margin-bottom: .75rem; font-weight: 600;
+    }
+    .modal-curiosidades ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .modal-curiosidades li {
+      font-size: .88rem; line-height: 1.6;
+      color: var(--texto); padding-left: 1.2rem; position: relative; opacity: 0.85;
+    }
+    .modal-curiosidades li::before {
+      content: '◆'; position: absolute; left: 0;
+      color: var(--dourado); font-size: .55rem; top: .3em;
+    }
+
+    /* 
+       CALENDAR
+     */
+    #calendario { background: var(--bege); }
+    .calendar-wrap {
+      max-width: 700px; margin: 0 auto;
+      background: var(--branco);
+      border-radius: 6px;
+      box-shadow: 0 8px 40px var(--sombra);
+      overflow: hidden; border: 1px solid rgba(10, 26, 47, 0.1);
+    }
+    .cal-header {
+      background: var(--azul);
+      padding: 1.4rem 1.8rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .cal-nav {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,.12); color: var(--branco);
+      font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
+      transition: background .3s;
+    }
+    .cal-nav:hover { background: var(--dourado); }
+    .cal-month-year {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; color: var(--branco); font-weight: 600;
+      letter-spacing: .04em; text-transform: capitalize;
+    }
+    .cal-weekdays {
+      display: grid; grid-template-columns: repeat(7, 1fr);
+      background: #f0ebe0;
+    }
+    .cal-weekday {
+      text-align: center; padding: .65rem 0;
+      font-size: .72rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--azul);
+    }
+    .cal-days { display: grid; grid-template-columns: repeat(7, 1fr); }
+    .cal-day {
+      aspect-ratio: 1; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      font-size: .9rem; position: relative;
+      cursor: pointer; transition: all .25s;
+      overflow: hidden;
+      z-index: 1;
+      font-weight: 600;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+      border-radius: 0;
+    }
+    .cal-thumb {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.25;
+      z-index: 0;
+    }
+    .cal-day:hover:not(.empty) { background: #f0ebe0; }
+    .cal-day.empty { cursor: default; }
+    .cal-day.today {
+      color: var(--dourado); font-weight: 700;
+    }
+    .cal-day.has-event { color: var(--azul); font-weight: 700; }
+    .cal-day.has-event::after {
+      content: ''; position: absolute; bottom: 6px; left: 50%; transform: translateX(-50%);
+      width: 5px; height: 5px; border-radius: 50%; background: var(--vinho);
+    }
+    .cal-day.selected { background: var(--dourado); color: var(--branco) !important; font-weight: 700; border-radius: 2px; }
+    .cal-day.selected::after { display: none; }
+    .cal-event-preview {
+      padding: 1.5rem 1.8rem;
+      border-top: 1px solid #ede8dc;
+      min-height: 80px;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .cal-event-item {
+      display: flex;
+      align-items: flex-start;
+      gap: .8rem;
+    }
+    .cal-event-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--vinho); flex-shrink: 0; margin-top: .45rem; }
+    .cal-event-name { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--azul); }
+    .cal-event-info { font-size: .8rem; color: var(--texto); margin-top: .2rem; opacity: 0.7; }
+    .cal-no-event { font-size: .88rem; color: #999; font-style: italic; }
+    .modal-dicas h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--azul);
+      margin-bottom: .75rem;
+      font-weight: 600;
+    }
+    .modal-dicas ul { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+    .modal-dicas li {
+      font-size: .9rem;
+      line-height: 1.6;
+      color: var(--texto);
+      padding-left: 1.2rem;
+      position: relative;
+      opacity: 0.9;
+    }
+    .modal-dicas li::before {
+      content: '◆';
+      position: absolute;
+      left: 0;
+      color: var(--dourado);
+      font-size: .55rem;
+      top: .3em;
+    }
+    .modal-dicas a {
+      color: var(--vinho);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(92, 26, 26, 0.35);
+      transition: color .3s ease, border-color .3s ease;
+    }
+    .modal-dicas a:hover {
+      color: var(--dourado);
+      border-color: var(--dourado);
+    }
+
+    /* 
+       EVENTO DA SEMANA
+     */
+    .evento-semana-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 5vw;
+      background: rgba(10, 26, 47, 0.72);
+      backdrop-filter: blur(6px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s ease;
+    }
+    .evento-semana-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .evento-semana-card {
+      width: min(100%, 860px);
+      display: grid;
+      grid-template-columns: minmax(280px, 1.05fr) minmax(280px, .95fr);
+      background: var(--branco);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(184, 149, 72, 0.18);
+      box-shadow: 0 22px 60px rgba(10, 26, 47, 0.25);
+      transform: scale(.96);
+      transition: transform .35s ease;
+      position: relative;
+    }
+    .evento-semana-overlay.open .evento-semana-card { transform: scale(1); }
+    .evento-semana-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(249, 247, 242, 0.92);
+      color: var(--azul);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      line-height: 1;
+      z-index: 2;
+      box-shadow: 0 8px 24px rgba(10, 26, 47, 0.12);
+      transition: background .3s ease, color .3s ease, transform .3s ease;
+    }
+    .evento-semana-close:hover {
+      background: var(--azul);
+      color: var(--branco);
+      transform: rotate(90deg);
+    }
+    .evento-semana-media {
+      min-height: 320px;
+      background: var(--azul);
+    }
+    .evento-semana-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .evento-semana-content {
+      padding: 2.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .evento-semana-kicker {
+      font-size: .78rem;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: var(--dourado);
+      font-weight: 700;
+    }
+    .evento-semana-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      line-height: 1.08;
+      color: var(--azul);
+    }
+    .evento-semana-date {
+      font-size: .92rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--vinho);
+      font-weight: 700;
+    }
+    .evento-semana-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: rgba(31, 27, 24, 0.82);
+    }
+    .evento-semana-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      align-self: flex-start;
+      margin-top: .4rem;
+      padding: .95rem 1.8rem;
+      background: var(--azul);
+      color: var(--branco);
+      border: 1px solid var(--azul);
+      border-radius: 2px;
+      font-size: .78rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-weight: 700;
+      transition: background .3s ease, color .3s ease, transform .3s ease;
+    }
+    .evento-semana-btn:hover {
+      background: transparent;
+      color: var(--azul);
+      transform: translateY(-1px);
+    }
+
+    /* 
+       ABOUT
+     */
+    #sobre { background: var(--azul); color: var(--branco); }
+    #sobre .section-title { color: var(--branco); }
+    #sobre .section-tag { color: var(--dourado); }
+    #sobre .section-divider { background: var(--dourado); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .about-img-wrap {
+      position: relative; border-radius: 4px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,.4);
+    }
+    .about-img-wrap img { width: 100%; height: 420px; object-fit: cover; border: 1px solid var(--dourado); }
+    
+    .about-text p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.12rem; line-height: 1.8;
+      color: rgba(255,255,255,0.8); margin-bottom: 1.2rem;
+    }
+    .about-text p:first-of-type {
+      font-size: 1.25rem; color: var(--bege); font-weight: 400;
+    }
+    .about-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin-top: 2rem;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem; font-weight: 700; color: var(--dourado-claro);
+    }
+    .stat-label { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: .2rem; }
+
+    /* 
+       FOOTER
+     */
+    footer {
+      background: #050C16;
+      padding: 3rem 5vw;
+      text-align: center;
+      border-top: 4px solid var(--dourado);
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem; color: var(--dourado-claro);
+      margin-bottom: 1rem; display: block;
+    }
+    .footer-divider { width: 40px; height: 1px; background: var(--dourado); margin: 1rem auto; }
+    .footer-credits { font-size: .85rem; color: rgba(255,255,255,.5); line-height: 1.8; }
+    .footer-credits strong { color: rgba(255,255,255,.8); font-weight: 500; }
+    .footer-year { font-size: .75rem; color: rgba(255,255,255,.28); margin-top: 1.5rem; }
+
+    /* 
+       ANIMATIONS
+     */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(36px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* 
+       RESPONSIVE
+     */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .hamburger { display: flex; }
+      .evento-semana-card { grid-template-columns: 1fr; max-width: 560px; }
+      .evento-semana-media { min-height: 240px; }
+      .evento-semana-content { padding: 2rem 1.5rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-img-wrap img { height: 260px; }
+      .about-stats { grid-template-columns: repeat(3, 1fr); gap: .75rem; }
+      .stat-num { font-size: 1.6rem; }
+      .modal-body { padding: 1.4rem; }
+      .modal-title { font-size: 1.5rem; }
+      .modal-img { height: 220px; }
+      section { padding: 4rem 5vw; }
+    }
+    @media (max-width: 480px) {
+      .evento-semana-overlay { padding: 1.25rem; }
+      .evento-semana-media { min-height: 210px; }
+      .evento-semana-text { font-size: 1.08rem; }
+      .evento-semana-btn { width: 100%; text-align: center; }
+      .hero-title { font-size: 2.4rem; }
+      .about-stats { grid-template-columns: repeat(3, 1fr); }
+    }
+
+  </style>
+</head>
+<body>
+
+<header id="header">
+  <a class="logo" href="#hero">Descubra Diamantina</a>
+  <nav>
+    <a href="#hero">Início</a>
+    <a href="#eventos">Eventos</a>
+    <a href="#calendario">Calendário</a>
+    <a href="#sobre">Sobre</a>
+  </nav>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" id="closeMenu">✕</button>
+  <a href="#hero" class="mob-link">Início</a>
+  <a href="#eventos" class="mob-link">Eventos</a>
+  <a href="#calendario" class="mob-link">Calendário</a>
+  <a href="#sobre" class="mob-link">Sobre</a>
+</div>
+
+<section id="hero">
+  <div class="background-section" id="heroBg">
+     <video id="heroVideo" poster="./.imagens/catedral.png" autoplay loop muted playsinline preload="none" data-src=".imagens/Video.mp4" aria-label="Vídeo de destaque de Diamantina"></video>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Patrimônio da Humanidade · UNESCO</p>
+    <h1 class="hero-title">Viva a cultura de<br><em>Diamantina</em></h1>
+    <p class="hero-sub">Casarões coloniais, serras e uma tradição musical única aguardam você nas ruas de pedra da cidade de JK.</p>
+    <button class="btn-hero" onclick="document.getElementById('eventos').scrollIntoView({behavior:'smooth'})">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+      Explorar Eventos
+    </button>
+  </div>
+  <div class="hero-scroll-hint">
+    <div class="scroll-line"></div>
+    <span>Rolar</span>
+  </div>
+</section>
+
+<section id="eventos">
+  <div class="section-header fade-in">
+    <span class="section-tag">Cultura &amp; Tradição</span>
+    <h2 class="section-title">Eventos em Destaque</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="events-grid" id="eventsGrid"></div>
+</section>
+
+<div class="evento-semana-overlay" id="eventoSemanaOverlay" aria-hidden="true">
+  <div class="evento-semana-card" role="dialog" aria-modal="true" aria-labelledby="eventoSemanaTitulo">
+    <button class="evento-semana-close" id="eventoSemanaClose" type="button" aria-label="Fechar destaque do evento">&times;</button>
+    <div class="evento-semana-media">
+      <img src="./.imagens/semana santa.png" alt="Semana Santa em Diamantina" loading="eager" decoding="async"/>
+    </div>
+    <div class="evento-semana-content">
+      <span class="evento-semana-kicker">Evento da Semana</span>
+      <h2 class="evento-semana-title" id="eventoSemanaTitulo">Semana Santa em Diamantina</h2>
+      <p class="evento-semana-date">29 de Mar&ccedil;o a 04 de Abril</p>
+      <p class="evento-semana-text">Prociss&otilde;es, tradi&ccedil;&atilde;o e espiritualidade em uma das celebra&ccedil;&otilde;es mais marcantes do calend&aacute;rio cultural de Diamantina.</p>
+      <button class="evento-semana-btn" id="eventoSemanaVerEvento" type="button">Ver evento</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <img class="modal-img" id="modalImg" src="" alt="" decoding="async"/>
+    <div class="modal-body">
+      <p class="modal-tag" id="modalTag"></p>
+      <h2 class="modal-title" id="modalTitle"></h2>
+      <p class="modal-desc" id="modalDesc"></p>
+      <div class="modal-tabs" id="modalTabs" hidden>
+        <button class="modal-tab active" id="modalTabInfo" data-tab="info" type="button">Informações</button>
+        <button class="modal-tab" id="modalTabDicas" data-tab="dicas" type="button">Dicas de moradores</button>
+      </div>
+      <div class="modal-tab-panel" id="modalPanelInfo">
+        <div class="modal-meta" id="modalMeta"></div>
+        <div class="modal-curiosidades" id="modalCuriosas"></div>
+      </div>
+      <div class="modal-tab-panel modal-dicas" id="modalPanelDicas" hidden></div>
+    </div>
+  </div>
+</div>
+
+<section id="calendario">
+  <div class="section-header fade-in">
+    <span class="section-tag">Planeje sua Visita</span>
+    <h2 class="section-title">Calendário de Eventos</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="calendar-wrap fade-in">
+    <div class="cal-header">
+      <button class="cal-nav" id="calPrev">&#8249;</button>
+      <span class="cal-month-year" id="calMonthYear"></span>
+      <button class="cal-nav" id="calNext">&#8250;</button>
+    </div>
+    <div class="cal-weekdays">
+      <div class="cal-weekday">Dom</div>
+      <div class="cal-weekday">Seg</div>
+      <div class="cal-weekday">Ter</div>
+      <div class="cal-weekday">Qua</div>
+      <div class="cal-weekday">Qui</div>
+      <div class="cal-weekday">Sex</div>
+      <div class="cal-weekday">Sáb</div>
+    </div>
+    <div class="cal-days" id="calDays"></div>
+    <div class="cal-event-preview" id="calPreview">
+      <span class="cal-no-event">Selecione um dia com ponto vinho para ver os detalhes</span>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="section-header fade-in">
+    <span class="section-tag">História &amp; Cultura</span>
+    <h2 class="section-title">Sobre Diamantina</h2>
+    <div class="section-divider"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-img-wrap fade-in">
+      <img src="./.imagens/catedral.png" alt="Catedral de Diamantina" loading="lazy" decoding="async"/>
+    </div>
+    <div class="about-text fade-in">
+      <p>Fundada no século XVIII durante o ciclo do diamante, Diamantina é um dos tesouros mais bem preservados do Brasil colonial e Patrimônio Mundial da UNESCO desde 1999.</p>
+      <p>Suas ruas de pedra-sabão, casarões de janelas azuis, igrejas barrocas e a singular atmosfera serrana formam um cenário único que inspirou a vida do presidente Juscelino Kubitschek — filho dileto da cidade.</p>
+      <p>A cidade respira música, fé e identidade. Da Vesperata às procissões de Semana Santa, Diamantina celebra sua cultura com fervor genuíno, convidando visitantes a mergulhar em uma experiência autêntica do Brasil histórico.</p>
+      <div class="about-stats">
+        <div class="stat-item">
+          <div class="stat-num">1999</div>
+          <div class="stat-label">Patrimônio UNESCO</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">300+</div>
+          <div class="stat-label">Anos de história</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">18</div>
+          <div class="stat-label">Igrejas históricas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">Descubra Diamantina</span>
+  <div class="footer-divider"></div>
+  <p class="footer-credits">
+    Projeto acadêmico desenvolvido por:<br>
+    <strong>Waldson, Raphael, Maruan, Bernardo, André, Pietro e Paulo</strong>
+  </p>
+  <p class="footer-year">© 2026 · Diamantina, Minas Gerais, Brasil</p>
+</footer>
+
+<script>
+/* 
+   DATA — eventos mockados
+ */
+const EVENTOS = [
+  {
+    id: 1,
+    tag: 'Música Tradicional',
+    nome: 'Vesperata',
+    dataTexto: 'Sextas e sábados · 2026',
+    desc: 'Músicos nas sacadas dos casarões históricos enquanto o público toma as ruas de pedra — um espetáculo para os sentidos.',
+    descCompleta: 'A Vesperata é um dos eventos mais tradicionais de Diamantina, onde músicos se apresentam nas sacadas dos casarões históricos enquanto o público acompanha das ruas de pedra, criando uma experiência única que une música, arquitetura e convivência. O espetáculo acontece ao entardecer, com a luz dourada do sol tingindo as fachadas coloniais e criando uma atmosfera verdadeiramente mágica.',
+    img: './.imagens/vesperata.png',  
+    local: 'Centro Histórico — Rua da Quitanda',
+    horario: 'A partir das 17h30',
+    data: 'Sextas e sábados, ao longo de 2026',
+    curiosidades: [
+      'O público pode reger a orquestra ao final de cada apresentação com batutas distribuídas.',
+      'A tradição teve início no início dos anos 1990 como valorização da cultura local.',
+      'O evento já recebeu turistas de mais de 40 países diferentes.',
+      'As músicas vão do barroco ao forró, surpreendendo sempre o público.',
+    ],
+    dicasMoradores: {
+      titulo: 'Restaurantes para ir',
+      itens: [
+        { nome: 'Cafe Baiuca', link: 'https://www.instagram.com/cafebaiuca/' }
+      ]
+    },
+    calDays: [
+      { month: 4, day: 11 }, { month: 4, day: 25 },
+      { month: 5, day: 23 }, { month: 5, day: 30 },
+      { month: 6, day: 13 }, { month: 6, day: 20 }, { month: 6, day: 27 },
+      { month: 7, day: 4 }, { month: 7, day: 11 },
+      { month: 8, day: 8 }, { month: 8, day: 15 }, { month: 8, day: 29 },
+      { month: 9, day: 19 }, { month: 9, day: 26 },
+      { month: 10, day: 10 }, { month: 10, day: 17 }
+    ],
+  },
+  {
+    id: 2,
+    tag: 'Religiosidade',
+    nome: 'Semana Santa',
+    dataTexto: 'Março / Abril · 2026',
+    desc: 'Procissões centenárias iluminadas por velas percorrem as ruas de pedra em uma das manifestações religiosas mais belas do Brasil.',
+    descCompleta: 'A Semana Santa de Diamantina é uma das mais belas e emocionantes do país. Procissões iluminadas por velas percorrem as ruas históricas da cidade, com devotos carregando imagens sacras de grande valor artístico. A devoção popular se mistura à arte barroca numa experiência que toca a alma.',
+    img: './.imagens/semana santa.png',  
+    local: 'Igrejas e ruas históricas',
+    horario: 'Noite (diversas procissões)',
+    data: 'Março / Abril de 2026',
+    curiosidades: [
+      'Algumas imagens sacras têm mais de 250 anos de história.',
+      'A Via Sacra da Ladeira do Amparo é uma das mais emocionantes do estado.',
+      'Turistas de todo o Brasil vêm especialmente para a Semana Santa diamantinense.',
+    ],
+    calDays: [{ month: 3, day: 29 }, { month: 3, day: 30 }, { month: 4, day: 2 }, { month: 4, day: 3 }, { month: 4, day: 4 }],
+  },
+  {
+    id: 3,
+    tag: 'Cultura & Arte',
+    nome: 'Festival de Inverno de Diamantina',
+    dataTexto: 'Julho · 2026',
+    desc: 'Um dos maiores eventos culturais de Minas, unindo grandes shows de MPB, oficinas de arte e cinema nas ruas históricas.',
+    descCompleta: 'O Festival de Inverno de Diamantina é um evento multicultural que transforma a cidade em um polo de aprendizado e entretenimento. A programação vai muito além da música: conta com oficinas de artes visuais, teatro, mostras de cinema e debates acadêmicos. Grandes nomes da música brasileira se apresentam na Praça JK, enquanto as igrejas e casarões recebem concertos de música de câmara e exposições artísticas.',
+    img: './.imagens/festivalinverno.png', 
+    local: 'Praça JK, Teatro Santa Izabel e Campus da UFVJM',
+    horario: 'Manhã, tarde e noite',
+    data: 'Julho de 2026',
+    curiosidades: [
+      'O festival promove o intercâmbio entre artistas locais e grandes nomes da cena nacional.',
+      'Além dos shows, o evento oferece oficinas gratuitas para a comunidade e turistas.',
+      'As mostras de cinema ao ar livre são uma das atrações favoritas dos visitantes.',
+    ],
+    calDays: [{ month: 7, day: 10 }, { month: 7, day: 11 }, { month: 7, day: 12 }, { month: 7, day: 13 }],
+  },
+];
+
+/* 
+   RENDER EVENTS
+ */
+const grid = document.getElementById('eventsGrid');
+EVENTOS.forEach((ev, i) => {
+  const card = document.createElement('article');
+  card.className = 'event-card fade-in';
+  card.style.transitionDelay = `${i * .12}s`;
+  card.innerHTML = `
+    <div class="card-img-wrap">
+      <img src="${ev.img}" alt="${ev.nome}" loading="lazy" decoding="async"/>
+      <span class="card-badge">${ev.tag}</span>
+    </div>
+    <div class="card-body">
+      <p class="card-date">📅 ${ev.dataTexto}</p>
+      <h3 class="card-title">${ev.nome}</h3>
+      <p class="card-desc">${ev.desc}</p>
+      <button class="btn-card" data-id="${ev.id}">
+        Ver mais
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>`;
+  grid.appendChild(card);
+});
+
+/* 
+   MODAL
+ */
+const overlay = document.getElementById('modalOverlay');
+const modalClose = document.getElementById('modalClose');
+const modalTabs = document.getElementById('modalTabs');
+const modalTabInfo = document.getElementById('modalTabInfo');
+const modalTabDicas = document.getElementById('modalTabDicas');
+const modalPanelInfo = document.getElementById('modalPanelInfo');
+const modalPanelDicas = document.getElementById('modalPanelDicas');
+const eventoSemanaOverlay = document.getElementById('eventoSemanaOverlay');
+const eventoSemanaClose = document.getElementById('eventoSemanaClose');
+const eventoSemanaVerEvento = document.getElementById('eventoSemanaVerEvento');
+
+function syncBodyScrollLock() {
+  const modalAberto = overlay && overlay.classList.contains('open');
+  const eventoAberto = eventoSemanaOverlay && eventoSemanaOverlay.classList.contains('open');
+  document.body.style.overflow = modalAberto || eventoAberto ? 'hidden' : '';
+}
+
+function abrirEventoSemana() {
+  if (!eventoSemanaOverlay) return;
+  eventoSemanaOverlay.classList.add('open');
+  eventoSemanaOverlay.setAttribute('aria-hidden', 'false');
+  syncBodyScrollLock();
+}
+
+function fecharEvento() {
+  if (!eventoSemanaOverlay) return;
+  eventoSemanaOverlay.classList.remove('open');
+  eventoSemanaOverlay.setAttribute('aria-hidden', 'true');
+  syncBodyScrollLock();
+}
+
+function abrirDetalhesEventoSemana() {
+  fecharEvento();
+  openModal(2);
+}
+
+function setModalTab(tab) {
+  if (!modalTabInfo || !modalTabDicas || !modalPanelInfo || !modalPanelDicas) return;
+
+  const infoActive = tab === 'info';
+  modalTabInfo.classList.toggle('active', infoActive);
+  modalTabDicas.classList.toggle('active', !infoActive);
+  modalPanelInfo.hidden = !infoActive;
+  modalPanelDicas.hidden = infoActive;
+}
+
+function resetModalTabs(hasDicas) {
+  if (!modalTabs || !modalTabInfo || !modalTabDicas || !modalPanelInfo || !modalPanelDicas) return;
+
+  modalTabs.hidden = !hasDicas;
+  modalTabs.style.display = hasDicas ? 'flex' : 'none';
+  modalTabInfo.classList.add('active');
+  modalTabDicas.classList.remove('active');
+  modalPanelInfo.hidden = false;
+  modalPanelDicas.hidden = true;
+}
+
+function openModal(id) {
+  const ev = EVENTOS.find(e => e.id === id);
+  if (!ev) return;
+  document.getElementById('modalImg').src = ev.img;
+  document.getElementById('modalImg').alt = ev.nome;
+  document.getElementById('modalTag').textContent = ev.tag;
+  document.getElementById('modalTitle').textContent = ev.nome;
+  document.getElementById('modalDesc').textContent = ev.descCompleta;
+  document.getElementById('modalMeta').innerHTML = `
+    <div class="modal-meta-item">📍 Local: <span>${ev.local}</span></div>
+    <div class="modal-meta-item">🕒 Horário: <span>${ev.horario}</span></div>
+    <div class="modal-meta-item">📅 Data: <span>${ev.data}</span></div>`;
+  document.getElementById('modalCuriosas').innerHTML = `
+    <h4>✦ Curiosidades</h4>
+    <ul>${ev.curiosidades.map(c => `<li>${c}</li>`).join('')}</ul>`;
+  if (modalTabs && modalPanelDicas) {
+    const hasDicas = Boolean(ev.dicasMoradores);
+    resetModalTabs(hasDicas);
+
+    if (hasDicas) {
+      modalPanelDicas.innerHTML = `
+        <h4>${ev.dicasMoradores.titulo}</h4>
+        <ul>${ev.dicasMoradores.itens.map(item => `<li><a href="${item.link}" target="_blank" rel="noopener noreferrer">${item.nome}</a></li>`).join('')}</ul>`;
+    } else {
+      modalPanelDicas.innerHTML = '';
+    }
+  }
+  overlay.classList.add('open');
+  syncBodyScrollLock();
+}
+
+function closeModal() {
+  overlay.classList.remove('open');
+  syncBodyScrollLock();
+}
+
+if (modalTabInfo) {
+  modalTabInfo.addEventListener('click', () => setModalTab('info'));
+}
+
+if (modalTabDicas) {
+  modalTabDicas.addEventListener('click', () => setModalTab('dicas'));
+}
+
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.btn-card');
+  if (btn) openModal(Number(btn.dataset.id));
+});
+modalClose.addEventListener('click', closeModal);
+overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+if (eventoSemanaClose) {
+  eventoSemanaClose.addEventListener('click', fecharEvento);
+}
+if (eventoSemanaOverlay) {
+  abrirEventoSemana();
+}
+if (eventoSemanaVerEvento) {
+  eventoSemanaVerEvento.addEventListener('click', abrirDetalhesEventoSemana);
+}
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  if (eventoSemanaOverlay && eventoSemanaOverlay.classList.contains('open')) {
+    fecharEvento();
+    return;
+  }
+  closeModal();
+});
+
+/* 
+   CALENDAR
+ */
+let calDate = new Date(2026, 4, 1); // May 2026
+let selDay = null;
+
+const MESES = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+const calMonthYear = document.getElementById('calMonthYear');
+const calDays = document.getElementById('calDays');
+const calPreview = document.getElementById('calPreview');
+const calPrev = document.getElementById('calPrev');
+const calNext = document.getElementById('calNext');
+
+const eventosPorDia = EVENTOS.reduce((mapa, evento) => {
+  evento.calDays.forEach(({ month, day }) => {
+    const chave = `${month}-${day}`;
+    if (!mapa[chave]) mapa[chave] = [];
+    mapa[chave].push(evento);
+  });
+  return mapa;
+}, {});
+
+function getEventsOnDay(month0, day) {
+  return eventosPorDia[`${month0 + 1}-${day}`] || [];
+}
+
+function resetPreview() {
+  if (!calPreview) return;
+  calPreview.innerHTML = '<span class="cal-no-event">Selecione um dia com ponto vinho para ver os detalhes</span>';
+}
+
+function renderCalendar() {
+  if (!calMonthYear || !calDays) return;
+
+  const yr = calDate.getFullYear();
+  const mo = calDate.getMonth();
+  calMonthYear.textContent = `${MESES[mo]} ${yr}`;
+
+  const firstDow = new Date(yr, mo, 1).getDay();
+  const daysInMonth = new Date(yr, mo + 1, 0).getDate();
+  const today = new Date();
+
+  calDays.innerHTML = '';
+
+  for (let i = 0; i < firstDow; i++) {
+    const empty = document.createElement('div');
+    empty.className = 'cal-day empty';
+    calDays.appendChild(empty);
+  }
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const cell = document.createElement('div');
+    const evs = getEventsOnDay(mo, d);
+    cell.className = 'cal-day';
+    const dayLabel = document.createElement('span');
+    dayLabel.textContent = d;
+    dayLabel.style.position = 'relative';
+    dayLabel.style.zIndex = '1';
+    if (today.getFullYear() === yr && today.getMonth() === mo && today.getDate() === d)
+      cell.classList.add('today');
+    if (evs.length) cell.classList.add('has-event');
+    if (selDay && selDay.d === d && selDay.m === mo && selDay.y === yr)
+      cell.classList.add('selected');
+    cell.appendChild(dayLabel);
+    cell.addEventListener('click', () => {
+      selDay = { d, m: mo, y: yr };
+      renderCalendar();
+      updatePreview(mo, d);
+    });
+    calDays.appendChild(cell);
+  }
+}
+
+function updatePreview(mo, d) {
+  if (!calPreview) return;
+
+  const evs = getEventsOnDay(mo, d);
+  if (!evs.length) {
+    calPreview.innerHTML = '<span class="cal-no-event">Nenhum evento neste dia.</span>';
+    return;
+  }
+  calPreview.innerHTML = evs.map(ev => `
+    <div class="cal-event-item">
+      <div class="cal-event-dot"></div>
+      <div>
+        <div class="cal-event-name">${ev.nome}</div>
+        <div class="cal-event-info">📍 ${ev.local} · 🕒 ${ev.horario}</div>
+      </div>
+    </div>`).join('');
+}
+
+if (calPrev) {
+  calPrev.addEventListener('click', () => {
+    calDate.setMonth(calDate.getMonth() - 1);
+    selDay = null;
+    renderCalendar();
+    resetPreview();
+  });
+}
+
+if (calNext) {
+  calNext.addEventListener('click', () => {
+    calDate.setMonth(calDate.getMonth() + 1);
+    selDay = null;
+    renderCalendar();
+    resetPreview();
+  });
+}
+
+renderCalendar();
+resetPreview();
+
+/* 
+   HEADER SCROLL
+ */
+const header = document.getElementById('header');
+const heroBg = document.getElementById('heroBg');
+const heroVideo = document.getElementById('heroVideo');
+let scrollTicking = false;
+
+function updateOnScroll() {
+  const scrollY = window.scrollY;
+  if (header) header.classList.toggle('scrolled', scrollY > 60);
+  if (heroBg && scrollY < window.innerHeight) {
+    heroBg.style.transform = `translateY(${scrollY * .35}px)`;
+  }
+  scrollTicking = false;
+}
+
+window.addEventListener('scroll', () => {
+  if (scrollTicking) return;
+  scrollTicking = true;
+  requestAnimationFrame(updateOnScroll);
+}, { passive: true });
+updateOnScroll();
+
+/* 
+   PARALLAX
+ */
+function carregarVideoHero() {
+  if (!heroVideo || heroVideo.dataset.loaded === 'true') return;
+  heroVideo.src = heroVideo.dataset.src;
+  heroVideo.dataset.loaded = 'true';
+  heroVideo.load();
+  heroVideo.play().catch(() => {});
+}
+
+if (heroVideo) {
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(carregarVideoHero, { timeout: 1500 });
+  } else {
+    window.setTimeout(carregarVideoHero, 800);
+  }
+}
+
+/* 
+   FADE-IN ON SCROLL
+ */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: .1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+/* 
+   HAMBURGER
+ */
+const mobileMenu = document.getElementById('mobileMenu');
+document.getElementById('hamburgerBtn').addEventListener('click', () => mobileMenu.classList.add('open'));
+document.getElementById('closeMenu').addEventListener('click', () => mobileMenu.classList.remove('open'));
+document.querySelectorAll('.mob-link').forEach(a => {
+  a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+});
+</script>
+</body>
+</html>
+
+
