@@ -199,7 +199,7 @@ function renderCalendar() {
     const thumbs = evs.slice(0, 3).map(ev => `<img class="cal-thumb" src="${ev.img}" alt="">`).join('');
     const markers = evs.slice(0, 4).map(ev => `<span class="marker" style="background:${CATEGORY_CLASS[ev.categoria] || '#681f2b'}"></span>`).join('');
 
-    daysContainer.insertAdjácentHTML('beforeend', `
+    daysContainer.insertAdjacentHTML('beforeend', `
       <button class="cal-day ${isToday ? 'today' : ''} ${isSelected ? 'selected' : ''}" type="button" data-cal-day="${day}">
         <span class="cal-number">${day}</span>
         ${evs.length ? `<span class="cal-thumbs">${thumbs}</span><span class="cal-markers">${markers}</span>` : ''}

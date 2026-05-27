@@ -21,7 +21,7 @@ const EVENTOS = [
     turismo: 'Reserve hospedagem e mesa com antecedência. Combine a noite com restaurantes do centro e caminhada pela Rua da Quitanda.',
     curiosidades: [
       'As datas futuras da temporada 2026 começam em 30 de maio e seguem até 17 de outubro.',
-      'A regência acontece na rua, apróximando público, maestro e músicos.',
+      'A regência acontece na rua, aproximando público, maestro e músicos.',
       'A experiência é um dos grandes símbolos da identidade musical diamantinense.'
     ],
     dicas: [
@@ -45,15 +45,15 @@ const EVENTOS = [
     destaque: true,
     dataTexto: '6 a 23 ago 2026',
     data: 'Agosto de 2026',
-    horario: 'Programação durante o dia é a noite',
+    horario: 'Programação durante o dia e à noite',
     local: 'Praça JK, Teatro Santa Izabel, UFVJM e Centro Histórico',
     bairro: 'Centro Histórico',
     img: './.imagens/festivalinverno.png',
     tags: ['festival', 'arte', 'música', 'ufvjm', 'gastronomia'],
     coordenadas: { lat: -18.2411, lng: -43.6032 },
-    desc: 'Mostras, shows, oficinas, gastronomia e arte ocupam praças, teatros e espaços universitarios.',
+    desc: 'Mostras, shows, oficinas, gastronomia e arte ocupam praças, teatros e espaços universitários.',
     descCompleta: 'O Festival de Inverno de Diamantina consolida a cidade como palco de arte, formação e convivência. A programação reúne shows, oficinas, cinema, exposições, teatro, gastronomia e atividades em vários pontos históricos.',
-    turismo: 'Monte roteiro por período: oficinas pela manhã, centro histórico a tarde e shows a noite.',
+    turismo: 'Monte roteiro por período: oficinas pela manhã, Centro Histórico à tarde e shows à noite.',
     curiosidades: [
       'A cidade inteira funciona como circuito cultural durante o festival.',
       'A programação costuma integrar artistas locais, estudantes e convidados nacionais.',
@@ -79,19 +79,19 @@ const EVENTOS = [
     destaque: true,
     dataTexto: '8 a 12 set 2026',
     data: 'Semana do aniversário de Juscelino Kubitschek',
-    horario: 'Manha, tarde e noite',
+    horario: 'Manhã, tarde e noite',
     local: 'Museu Casa JK, Praça JK, Teatro Santa Izabel e Centro Histórico',
     bairro: 'Centro Histórico',
     img: './.imagens/Diamantina1.png',
     tags: ['jk', 'história', 'seresta', 'homenagem'],
     coordenadas: { lat: -18.2407, lng: -43.5989 },
     desc: 'Programação cultural e histórica celebra o legado de Juscelino Kubitschek em sua cidade natal.',
-    descCompleta: 'A Semana JK reúne homenagens, palestras, serestas, exibições, solenidades e atividades culturais ligadas a memória de Juscelino Kubitschek, nascido em Diamantina em 12 de setembro.',
+    descCompleta: 'A Semana JK reúne homenagens, palestras, serestas, exibições, solenidades e atividades culturais ligadas à memória de Juscelino Kubitschek, nascido em Diamantina em 12 de setembro.',
     turismo: 'Inclua o Museu Casa JK, a Praça JK e uma caminhada pelo eixo histórico ligado a memória do presidente.',
     curiosidades: [
       'A data central é 12 de setembro, aniversário de JK.',
       'A programação costuma incluir a entrega da Medalha JK.',
-      'Serestas e atividades históricas conectam a cidade a memória afetiva do presidente.'
+      'Serestas e atividades históricas conectam a cidade à memória afetiva do presidente.'
     ],
     dicas: [
       { titulo: 'Visita essencial', texto: 'O Museu Casa JK é o melhor ponto de partida para entender o contexto histórico.' }
@@ -115,7 +115,7 @@ const EVENTOS = [
     tags: ['seresta', 'música', 'ruas históricas', 'jk'],
     coordenadas: { lat: -18.242, lng: -43.6005 },
     desc: 'Canto tradicional percorre becos e largos, mantendo viva a memória musical da cidade.',
-    descCompleta: 'A seresta diamantinense é uma das manifestações mais autênticas da cidade. Músicos e cantores percorrem as ruas históricas com repertório afetivo, apróximando moradores e visitantes.',
+    descCompleta: 'A seresta diamantinense é uma das manifestações mais autênticas da cidade. Músicos e cantores percorrem as ruas históricas com repertório afetivo, aproximando moradores e visitantes.',
     turismo: 'Acompanhe a caminhada musical com calçado confortável e encerre a noite no Mercado Velho.',
     curiosidades: [
       'JK era admirador declarado das serestas de Diamantina.',
@@ -146,16 +146,16 @@ const EVENTOS = [
     img: './.imagens/catédral.png',
     tags: ['religioso', 'santo antonio', 'tradição', 'barraquinhas'],
     coordenadas: { lat: -18.2419, lng: -43.6035 },
-    desc: 'Celebração religiosa com missa, procissão, convivência comunitaria e comidas tradicionais.',
+    desc: 'Celebração religiosa com missa, procissão, convivência comunitária e comidas tradicionais.',
     descCompleta: 'A Festa de Santo Antônio integra o calendário de festas religiosas tradicionais de Diamantina, reunindo devoção, música, barraquinhas e encontros comunitários no entorno das igrejas históricas.',
     turismo: 'Combine a festa com visita ao Largo Dom João e ao conjunto de igrejas do centro.',
     curiosidades: [
-      'Santo Antônio é uma das devocoes populares mais fortes em Minas Gerais.',
-      'As barraquinhas apróximam visitantes da culinaria afetiva local.',
-      'A festa acontece no período junino, junto a outras celebracoes tradicionais.'
+      'Santo Antônio é uma das devoções populares mais fortes em Minas Gerais.',
+      'As barraquinhas aproximam visitantes da culinaria afetiva local.',
+      'A festa acontece no período junino, junto a outras celebrações tradicionais.'
     ],
     dicas: [
-      { titulo: 'Chegada', texto: 'As ruas ficam mais movimentadas no fim da tarde; va a pe pelo Centro Histórico.' }
+      { titulo: 'Chegada', texto: 'As ruas ficam mais movimentadas no fim da tarde; vá a pé pelo Centro Histórico.' }
     ],
     calDays: [{ month: 6, day: 13 }]
   },
@@ -173,7 +173,7 @@ const EVENTOS = [
     tags: ['junina', 'forro', 'mercado velho', 'gastronomia'],
     coordenadas: { lat: -18.2402, lng: -43.6018 },
     desc: 'Forro, comidas de festa, artesanato e encontro popular no coração boêmio da cidade.',
-    descCompleta: 'No período junino, o Mercado Velho concentra programacoes de música, comidas típicas, artesanato e convivência. É uma experiência informal, local e muito ligada ao cotidiano cultural de Diamantina.',
+    descCompleta: 'No período junino, o Mercado Velho concentra programações de música, comidas típicas, artesanato e convivência. É uma experiência informal, local e muito ligada ao cotidiano cultural de Diamantina.',
     turismo: 'Experimente caldos, milho, doces e pratos regionais antes dos shows.',
     curiosidades: [
       'O Mercado Velho é ponto de encontro de moradores e visitantes.',
@@ -187,19 +187,19 @@ const EVENTOS = [
   },
   {
     id: 7,
-    nome: 'Feira de Economia Solidaria',
+    nome: 'Feira de Economia Solidária',
     categoria: 'Artesanato',
     tipo: 'Feira',
     dataTexto: 'Sábados de temporada',
     data: 'Sábados entre junho e outubro de 2026',
-    horario: '9h as 15h',
+    horario: '9h às 15h',
     local: 'Mercado Velho',
     bairro: 'Mercado Velho',
     img: './.imagens/Diamantina2.png',
     tags: ['artesanato', 'economia solidaria', 'produtores', 'mercado velho'],
     coordenadas: { lat: -18.2402, lng: -43.6018 },
     desc: 'Produtos autorais, artesanato, quitandas e saberes do Vale em uma feira de produtores locais.',
-    descCompleta: 'A Feira de Economia Solidaria apróxima visitantes de artesãos, produtores e cozinheiras locais, fortalecendo a renda criativa e o consumo responsável no centro histórico.',
+    descCompleta: 'A Feira de Economia Solidária aproxima visitantes de artesãos, produtores e cozinheiras locais, fortalecendo a renda criativa e o consumo responsável no centro histórico.',
     turismo: 'Leve dinheiro em espécie para pequenas compras e converse com os produtores sobre origem e técnica.',
     curiosidades: [
       'A feira é uma vitrine de produtos do Vale do Jequitinhonha.',
@@ -216,24 +216,24 @@ const EVENTOS = [
   },
   {
     id: 8,
-    nome: 'Sarau Arte Miuda',
+    nome: 'Sarau Arte Miúda',
     categoria: 'Cultural',
     tipo: 'Infantil',
     dataTexto: 'Domingos de temporada',
     data: 'Domingos em fins de semana de programação cultural',
     horario: '10h',
-    local: 'Solar de Cultura Arte Miuda, Rua da Gloria, 252',
+    local: 'Solar de Cultura Arte Miúda, Rua da Gloria, 252',
     bairro: 'Centro Histórico',
     img: './.imagens/catédral.png',
     tags: ['infantil', 'seresta', 'familia', 'arte miuda'],
     coordenadas: { lat: -18.2432, lng: -43.5997 },
     desc: 'Apresentacao afetiva para famílias, unindo música, memória e formação cultural.',
-    descCompleta: 'O Sarau Arte Miuda cria uma ponte entre a tradição musical de Diamantina e novos públicos. É uma atividade leve, recomendada para famílias e visitantes interessados na cultura da seresta.',
+    descCompleta: 'O Sarau Arte Miúda cria uma ponte entre a tradição musical de Diamantina e novos públicos. É uma atividade leve, recomendada para famílias e visitantes interessados na cultura da seresta.',
     turismo: 'Inclua no domingo pela manhã antes de museus, igrejas e almoço no centro.',
     curiosidades: [
-      'O Solar de Cultura Arte Miuda também preserva memória ligada a seresta.',
+      'O Solar de Cultura Arte Miúda também preserva memória ligada a seresta.',
       'A atividade é indicada para crianças e famílias.',
-      'O formato apróxima educação musical e turismo cultural.'
+      'O formato aproxima educação musical e turismo cultural.'
     ],
     dicas: [
       { titulo: 'Famílias', texto: 'Boa opção para quem viaja com crianças e quer uma agenda cultural curta.' }
@@ -247,7 +247,7 @@ const EVENTOS = [
     tipo: 'Festival',
     dataTexto: 'Julho 2026',
     data: '17 a 19 de julho de 2026',
-    horario: '10h as 20h',
+    horario: '10h às 20h',
     local: 'Mercado Velho e Centro Histórico',
     bairro: 'Mercado Velho',
     img: './.imagens/Diamantina1.png',
@@ -255,7 +255,7 @@ const EVENTOS = [
     coordenadas: { lat: -18.2402, lng: -43.6018 },
     desc: 'Mostra de artesanato, produtos típicos e economia criativa no circuito histórico.',
     descCompleta: 'O festival valoriza trabalhos manuais, produtos regionais, técnicas tradicionais e criadores de Diamantina e do entorno, conectando turismo, cultura e renda local.',
-    turismo: 'Reserve espaco na mala para cerâmicas, bordados, doces e lembranças autorais.',
+    turismo: 'Reserve espaço na mala para cerâmicas, bordados, doces e lembranças autorais.',
     curiosidades: [
       'O artesanato é uma das portas de entrada para a cultura do Vale do Jequitinhonha.',
       'O Mercado Velho funciona como eixo natural para feiras e encontros.',
@@ -285,7 +285,7 @@ const EVENTOS = [
     curiosidades: [
       'A gastronomia local traduz memórias do garimpo e da vida no Vale.',
       'O festival fortalece produtores, mestres e restaurantes da cidade.',
-      'Feiras e oficinas apróximam visitantes dos modos de fazer tradicionais.'
+      'Feiras e oficinas aproximam visitantes dos modos de fazer tradicionais.'
     ],
     dicas: [
       { titulo: 'Reserva', texto: 'Restaurantes podem lotar em fins de semana de Vesperata.' }
@@ -318,7 +318,7 @@ const EVENTOS = [
       'Concertos ajudam a formar público e jovens músicos.'
     ],
     dicas: [
-      { titulo: 'Etiqueta', texto: 'Confira se o espaco exige retirada previa de ingresso ou chegada antecipada.' }
+      { titulo: 'Etiqueta', texto: 'Confira se o espaço exige retirada prévia de ingresso ou chegada antecipada.' }
     ],
     calDays: [{ month: 7, day: 24 }, { month: 8, day: 21 }, { month: 9, day: 11 }, { month: 10, day: 2 }]
   },
@@ -344,7 +344,7 @@ const EVENTOS = [
       'A procissão pelas ruas de pedra reforça a experiência patrimonial.'
     ],
     dicas: [
-      { titulo: 'Fotografia', texto: 'Respeite os momentos liturgicos e evite flash durante celebracoes.' }
+      { titulo: 'Fotografia', texto: 'Respeite os momentos liturgicos e evite flash durante celebrações.' }
     ],
     calDays: [{ month: 7, day: 16 }]
   },
@@ -407,7 +407,7 @@ const EVENTOS = [
     tipo: 'Popular',
     dataTexto: 'Sextas culturais',
     data: 'Programação recorrente em fins de semana de eventos',
-    horario: '18h as 23h',
+    horario: '18h às 23h',
     local: 'Praça do Mercado Velho',
     bairro: 'Mercado Velho',
     img: './.imagens/Diamantina2.png',
@@ -415,14 +415,14 @@ const EVENTOS = [
     coordenadas: { lat: -18.2402, lng: -43.6018 },
     desc: 'Música ao vivo, bares, comidas típicas e convivência no ponto boêmio mais conhecido da cidade.',
     descCompleta: 'A programação do Mercado Velho é uma das formas mais espontaneas de viver Diamantina: mesas na praça, música, comida regional e circulação entre moradores e turistas.',
-    turismo: 'Ideal para sexta a noite, antes de uma Vesperata ou de um roteiro cultural no sabado.',
+    turismo: 'Ideal para sexta à noite, antes de uma Vesperata ou de um roteiro cultural no sábado.',
     curiosidades: [
       'O Mercado Velho e referência de encontro, feira e gastronomia.',
       'A programação varia conforme fim de semana e temporada.',
       'E um dos melhores lugares para sentir a vida local.'
     ],
     dicas: [
-      { titulo: 'Chegada', texto: 'As mesas ocupam rapido em noites movimentadas.' }
+      { titulo: 'Chegada', texto: 'As mesas ocupam rápido em noites movimentadas.' }
     ],
     calDays: [{ month: 6, day: 12 }, { month: 7, day: 3 }, { month: 8, day: 7 }, { month: 9, day: 18 }, { month: 10, day: 9 }]
   },
@@ -433,14 +433,14 @@ const EVENTOS = [
     tipo: 'Natureza',
     dataTexto: 'Junho a novembro 2026',
     data: 'Fins de semana selecionados',
-    horario: '10h as 17h',
+    horario: '10h às 17h',
     local: 'Vila do Biribiri',
     bairro: 'Biribiri',
     img: './.imagens/Diamantina2.png',
     tags: ['biribiri', 'natureza', 'gastronomia', 'vila histórica'],
     coordenadas: { lat: -18.176, lng: -43.583 },
     desc: 'Programas de dia inteiro com vila histórica, cachoeiras, gastronomia e cultura local.',
-    descCompleta: 'A Vila do Biribiri combina patrimônio industrial, paisagem natural e gastronomia. Em fins de semana de temporada, recebe programacoes culturais, experiências turísticas e atividades de convivência.',
+    descCompleta: 'A Vila do Biribiri combina patrimônio industrial, paisagem natural e gastronomia. Em fins de semana de temporada, recebe programações culturais, experiências turísticas e atividades de convivência.',
     turismo: 'Va de dia, leve roupa confortável e confira condicoes de acesso a cachoeiras.',
     curiosidades: [
       'A vila preserva memória da antiga fabrica textil.',
@@ -500,7 +500,7 @@ const EVENTOS = [
       'O formato intimista valoriza repertório e proximidade com os músicos.'
     ],
     dicas: [
-      { titulo: 'Reserva', texto: 'Verifique disponibilidade diretamente com o espaco organizador.' }
+      { titulo: 'Reserva', texto: 'Verifique disponibilidade diretamente com o espaço organizador.' }
     ],
     calDays: [{ month: 10, day: 3 }]
   },
@@ -517,12 +517,12 @@ const EVENTOS = [
     img: './.imagens/Vesperata.png',
     tags: ['jazz', 'jk', 'música instrumental', 'praça jk'],
     coordenadas: { lat: -18.2411, lng: -43.6032 },
-    desc: 'Música instrumental em espaco aberto, conectando jazz, bossa e tradição musical local.',
+    desc: 'Música instrumental em espaço aberto, conectando jazz, bossa e tradição musical local.',
     descCompleta: 'A JK Jazz Band reforça a imagem de Diamantina como cidade musical, com repertório instrumental em diálogo com jazz, bossa nova, seresta e a atmosfera das praças históricas.',
     turismo: 'Chegue antes para circular pela Praça JK e emendar com restaurantes próximos.',
     curiosidades: [
       'A cidade tem relação histórica com bandas, serestas e formação musical.',
-      'Shows abertos apróximam moradores e visitantes.',
+      'Shows abertos aproximam moradores e visitantes.',
       'O nome remete ao simbolo histórico mais conhecido de Diamantina.'
     ],
     dicas: [
@@ -543,8 +543,8 @@ const EVENTOS = [
     img: './.imagens/semana santa.png',
     tags: ['semana santa', 'procissão', 'religioso', 'patrimônio'],
     coordenadas: { lat: -18.2416, lng: -43.6027 },
-    desc: 'Procissoes, tapetes, guarda romana e celebracoes barrocas em uma das semanas mais marcantes da cidade.',
-    descCompleta: 'A Semana Santa de Diamantina é uma celebração religiosa de forte apelo cultural, com procissões, imagens sacras, ritos tradicionais e intensa participação comunitaria no Centro Histórico.',
+    desc: 'Procissoes, tapetes, guarda romana e celebrações barrocas em uma das semanas mais marcantes da cidade.',
+    descCompleta: 'A Semana Santa de Diamantina é uma celebração religiosa de forte apelo cultural, com procissões, imagens sacras, ritos tradicionais e intensa participação comunitária no Centro Histórico.',
     turismo: 'Para a próxima edição, planeje hospedagem com antecedência e acompanhe a programação paroquial.',
     observação: 'Próxima edição futura usada para planejamento turístico; confirme a programação paroquial oficial antes da viagem.',
     curiosidades: [
@@ -568,7 +568,7 @@ const EVENTOS = [
     tipo: 'Tradicional',
     dataTexto: '16 mai 2027',
     data: 'Domingo de Pentecostes, 50 dias apos a Pascoa',
-    horario: 'Cortejo e celebracoes a partir da manhã',
+    horario: 'Cortejo e celebrações a partir da manhã',
     local: 'Catedral Metropolitana e Praça do Mercado Velho',
     bairro: 'Centro Histórico',
     img: './.imagens/catédral.png',
@@ -595,7 +595,7 @@ const EVENTOS = [
     tipo: 'Universitario',
     dataTexto: 'Agosto a novembro 2026',
     data: 'Programação academica e cultural semestral',
-    horario: 'Manha, tarde e noite',
+    horario: 'Manhã, tarde e noite',
     local: 'Campus JK - UFVJM',
     bairro: 'Campus JK',
     img: './.imagens/Diamantina1.png',
@@ -606,7 +606,7 @@ const EVENTOS = [
     turismo: 'Confira a agenda do campus quando estiver na cidade em semana de festival ou feriado prolongado.',
     curiosidades: [
       'A universidade ajuda a movimentar a vida cultural durante todo o ano.',
-      'Projetos de extensão apróximam estudantes e comunidade.',
+      'Projetos de extensão aproximam estudantes e comunidade.',
       'Eventos acadêmicos complementam a agenda turística tradicional.'
     ],
     dicas: [
