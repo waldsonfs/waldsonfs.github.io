@@ -57,7 +57,7 @@ const EVENTOS = [
     curiosidades: [
       'A cidade inteira funciona como circuito cultural durante o festival.',
       'A programação costuma integrar artistas locais, estudantes e convidados nacionais.',
-      'E uma das melhores épocas para combinar patrimônio, clima de serra e cultura.'
+      'É uma das melhores épocas para combinar patrimônio, clima de serra e cultura.'
     ],
     dicas: [
       { titulo: 'Roteiro', texto: 'Use a Praça JK como ponto de encontro para shows e circulação.' },
@@ -143,7 +143,7 @@ const EVENTOS = [
     horario: 'Missa, procissão e barraquinhas a partir da tarde',
     local: 'Igreja de Santo Antônio e Largo Dom João',
     bairro: 'Centro Histórico',
-    img: './.imagens/catédral.png',
+    img: './.imagens/catedral.png',
     tags: ['religioso', 'santo antonio', 'tradição', 'barraquinhas'],
     coordenadas: { lat: -18.2419, lng: -43.6035 },
     desc: 'Celebração religiosa com missa, procissão, convivência comunitária e comidas tradicionais.',
@@ -196,7 +196,7 @@ const EVENTOS = [
     local: 'Mercado Velho',
     bairro: 'Mercado Velho',
     img: './.imagens/Diamantina2.png',
-    tags: ['artesanato', 'economia solidaria', 'produtores', 'mercado velho'],
+    tags: ['artesanato', 'economia solidária', 'produtores', 'mercado velho'],
     coordenadas: { lat: -18.2402, lng: -43.6018 },
     desc: 'Produtos autorais, artesanato, quitandas e saberes do Vale em uma feira de produtores locais.',
     descCompleta: 'A Feira de Economia Solidária aproxima visitantes de artesãos, produtores e cozinheiras locais, fortalecendo a renda criativa e o consumo responsável no centro histórico.',
@@ -224,10 +224,10 @@ const EVENTOS = [
     horario: '10h',
     local: 'Solar de Cultura Arte Miúda, Rua da Gloria, 252',
     bairro: 'Centro Histórico',
-    img: './.imagens/catédral.png',
+    img: './.imagens/catedral.png',
     tags: ['infantil', 'seresta', 'familia', 'arte miuda'],
     coordenadas: { lat: -18.2432, lng: -43.5997 },
-    desc: 'Apresentacao afetiva para famílias, unindo música, memória e formação cultural.',
+    desc: 'Apresentação afetiva para famílias, unindo música, memória e formação cultural.',
     descCompleta: 'O Sarau Arte Miúda cria uma ponte entre a tradição musical de Diamantina e novos públicos. É uma atividade leve, recomendada para famílias e visitantes interessados na cultura da seresta.',
     turismo: 'Inclua no domingo pela manhã antes de museus, igrejas e almoço no centro.',
     curiosidades: [
@@ -306,12 +306,12 @@ const EVENTOS = [
     horario: '20h',
     local: 'Teatro Santa Izabel e igrejas históricas',
     bairro: 'Centro Histórico',
-    img: './.imagens/catédral.png',
+    img: './.imagens/catedral.png',
     tags: ['concerto', 'orquestra', 'música clássica', 'teatro'],
     coordenadas: { lat: -18.2414, lng: -43.603 },
     desc: 'Repertório sinfônico em teatros e igrejas, conectando formação musical e patrimônio.',
     descCompleta: 'Os concertos da Orquestra Sinfônica Jovem reforçam a vocação musical de Diamantina, com apresentações em espaços históricos de forte valor acústico e cultural.',
-    turismo: 'Chegue cedo para visitar o entorno do teatro ou da igrejá antes da apresentacao.',
+    turismo: 'Chegue cedo para visitar o entorno do teatro ou da igreja antes da apresentação.',
     curiosidades: [
       'Diamantina é reconhecida por sua intensa vida musical.',
       'Igrejas históricas oferecem ambiência acústica especial.',
@@ -332,7 +332,7 @@ const EVENTOS = [
     horario: 'Missa e procissão no fim da tarde',
     local: 'Igreja de Nossa Senhora do Carmo',
     bairro: 'Centro Histórico',
-    img: './.imagens/catédral.png',
+    img: './.imagens/catedral.png',
     tags: ['religioso', 'carmo', 'procissão', 'barroco'],
     coordenadas: { lat: -18.242, lng: -43.5998 },
     desc: 'Celebração mariana em uma das igrejas mais emblemáticas do Centro Histórico.',
@@ -359,13 +359,13 @@ const EVENTOS = [
     local: 'Catedral Metropolitana e ruas históricas',
     bairro: 'Centro Histórico',
     img: './.imagens/semana santa.png',
-    tags: ['religioso', 'procissão', 'catédral', 'tradição'],
+    tags: ['religioso', 'procissão', 'catedral', 'tradição'],
     coordenadas: { lat: -18.2416, lng: -43.6027 },
-    desc: 'Manifestacao de fe e memória religiosa no entorno da Catedral Metropolitana.',
+    desc: 'Manifestação de fé e memória religiosa no entorno da Catedral Metropolitana.',
     descCompleta: 'A celebração de Nossa Senhora das Dores integra as tradicionais manifestações religiosas da cidade, com missa, procissão e repertório devocional no centro histórico.',
     turismo: 'Combine a visita com o Largo da Catedral e com o circuito de igrejas históricas.',
     curiosidades: [
-      'A devoção a Nossa Senhora das Dores tem forte presença na tradição catolica mineira.',
+      'A devoção a Nossa Senhora das Dores tem forte presença na tradição católica mineira.',
       'O Centro Histórico cria uma ambiência especial para procissões noturnas.',
       'A Catedral é um dos principais marcos urbanos de Diamantina.'
     ],
@@ -414,12 +414,12 @@ const EVENTOS = [
     tags: ['mercado velho', 'bares', 'música', 'gastronomia'],
     coordenadas: { lat: -18.2402, lng: -43.6018 },
     desc: 'Música ao vivo, bares, comidas típicas e convivência no ponto boêmio mais conhecido da cidade.',
-    descCompleta: 'A programação do Mercado Velho é uma das formas mais espontaneas de viver Diamantina: mesas na praça, música, comida regional e circulação entre moradores e turistas.',
+    descCompleta: 'A programação do Mercado Velho é uma das formas mais espontâneas de viver Diamantina: mesas na praça, música, comida regional e circulação entre moradores e turistas.',
     turismo: 'Ideal para sexta à noite, antes de uma Vesperata ou de um roteiro cultural no sábado.',
     curiosidades: [
-      'O Mercado Velho e referência de encontro, feira e gastronomia.',
+      'O Mercado Velho é referência de encontro, feira e gastronomia.',
       'A programação varia conforme fim de semana e temporada.',
-      'E um dos melhores lugares para sentir a vida local.'
+      'É um dos melhores lugares para sentir a vida local.'
     ],
     dicas: [
       { titulo: 'Chegada', texto: 'As mesas ocupam rápido em noites movimentadas.' }
@@ -441,9 +441,9 @@ const EVENTOS = [
     coordenadas: { lat: -18.176, lng: -43.583 },
     desc: 'Programas de dia inteiro com vila histórica, cachoeiras, gastronomia e cultura local.',
     descCompleta: 'A Vila do Biribiri combina patrimônio industrial, paisagem natural e gastronomia. Em fins de semana de temporada, recebe programações culturais, experiências turísticas e atividades de convivência.',
-    turismo: 'Va de dia, leve roupa confortável e confira condicoes de acesso a cachoeiras.',
+    turismo: 'Vá de dia, leve roupa confortável e confira condições de acesso a cachoeiras.',
     curiosidades: [
-      'A vila preserva memória da antiga fabrica textil.',
+      'A vila preserva memória da antiga fábrica têxtil.',
       'O entorno natural é um dos passeios mais procurados de Diamantina.',
       'Restaurantes e pequenas experiências completam o roteiro.'
     ],
@@ -467,9 +467,9 @@ const EVENTOS = [
     coordenadas: { lat: -18.304, lng: -43.759 },
     desc: 'Roteiros de bike e caminhada por antigas passagens, paisagens serranas e comunidades do entorno.',
     descCompleta: 'As experiências esportivas e turísticas conectam Diamantina a paisagens naturais, antigos caminhos e distritos como Conselheiro Mata, com potencial para caminhadas, mountain bike e roteiros guiados.',
-    turismo: 'Contraté condutor local, verifique clima e leve equipamentos adequados.',
+    turismo: 'Contrate condutor local, verifique clima e leve equipamentos adequados.',
     curiosidades: [
-      'A região integra paisagens do antigo leito ferroviario e caminhos históricos.',
+      'A região integra paisagens do antigo leito ferroviário e caminhos históricos.',
       'O cicloturismo tem crescido como produto turístico local.',
       'As trilhas conectam esporte, natureza e memória territorial.'
     ],
@@ -543,7 +543,7 @@ const EVENTOS = [
     img: './.imagens/semana santa.png',
     tags: ['semana santa', 'procissão', 'religioso', 'patrimônio'],
     coordenadas: { lat: -18.2416, lng: -43.6027 },
-    desc: 'Procissoes, tapetes, guarda romana e celebrações barrocas em uma das semanas mais marcantes da cidade.',
+    desc: 'Procissões, tapetes, guarda romana e celebrações barrocas em uma das semanas mais marcantes da cidade.',
     descCompleta: 'A Semana Santa de Diamantina é uma celebração religiosa de forte apelo cultural, com procissões, imagens sacras, ritos tradicionais e intensa participação comunitária no Centro Histórico.',
     turismo: 'Para a próxima edição, planeje hospedagem com antecedência e acompanhe a programação paroquial.',
     observação: 'Próxima edição futura usada para planejamento turístico; confirme a programação paroquial oficial antes da viagem.',
@@ -571,12 +571,12 @@ const EVENTOS = [
     horario: 'Cortejo e celebrações a partir da manhã',
     local: 'Catedral Metropolitana e Praça do Mercado Velho',
     bairro: 'Centro Histórico',
-    img: './.imagens/catédral.png',
+    img: './.imagens/catedral.png',
     tags: ['divino', 'bolo de arroz', 'procissão', 'patrimônio imatérial'],
     coordenadas: { lat: -18.2416, lng: -43.6027 },
-    desc: 'Festa de fe, cortejo, música, símbolos do Divino e distribuição do tradicional bolo de arroz.',
-    descCompleta: 'A Festa do Divino Espírito Santo e patrimônio cultural imatérial de Diamantina. A celebração envolve novena, coroacao, procissão, bandas, personagens tradicionais é o modo de fazer do bolo de arroz.',
-    turismo: 'Acompanhe cortejos com respeito e experimente o bolo de arroz, simbolo afetivo da festa.',
+    desc: 'Festa de fé, cortejo, música, símbolos do Divino e distribuição do tradicional bolo de arroz.',
+    descCompleta: 'A Festa do Divino Espírito Santo é patrimônio cultural imatérial de Diamantina. A celebração envolve novena, coroação, procissão, bandas, personagens tradicionais e o modo de fazer do bolo de arroz.',
+    turismo: 'Acompanhe cortejos com respeito e experimente o bolo de arroz, símbolo afetivo da festa.',
     observação: 'Próxima edição futura: domingo de Pentecostes de 2027.',
     curiosidades: [
       'A festa acontece no domingo de Pentecostes.',
@@ -601,8 +601,8 @@ const EVENTOS = [
     img: './.imagens/Diamantina1.png',
     tags: ['ufvjm', 'universidade', 'cultura', 'formação'],
     coordenadas: { lat: -18.218, lng: -43.595 },
-    desc: 'Mostras, encontros, debatés, atividades artisticas e eventos universitarios abertos a comunidade.',
-    descCompleta: 'A UFVJM amplia a agenda cultural de Diamantina com eventos acadêmicos, mostras, projetos de extensão, apresentações e debatés que conectam universidade, cidade e visitantes.',
+    desc: 'Mostras, encontros, debates, atividades artísticas e eventos universitários abertos à comunidade.',
+    descCompleta: 'A UFVJM amplia a agenda cultural de Diamantina com eventos acadêmicos, mostras, projetos de extensão, apresentações e debates que conectam universidade, cidade e visitantes.',
     turismo: 'Confira a agenda do campus quando estiver na cidade em semana de festival ou feriado prolongado.',
     curiosidades: [
       'A universidade ajuda a movimentar a vida cultural durante todo o ano.',

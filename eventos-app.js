@@ -189,7 +189,7 @@ function renderCalendar() {
   const today = new Date();
 
   for (let i = 0; i < firstDow; i += 1) {
-    daysContainer.insertAdjácentHTML('beforeend', '<button class="cal-day empty" type="button" tabindex="-1"></button>');
+    daysContainer.insertAdjacentHTML('beforeend', '<button class="cal-day empty" type="button" tabindex="-1"></button>');
   }
 
   for (let day = 1; day <= daysInMonth; day += 1) {
