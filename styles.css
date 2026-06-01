@@ -457,6 +457,13 @@ section { padding: clamp(70px, 9vw, 120px) clamp(20px, 5vw, 72px); }
   letter-spacing: .08em;
   text-transform: uppercase;
   backdrop-filter: blur(10px);
+  line-height: 1.2;
+}
+
+.badge-date {
+  max-width: 100%;
+  text-align: right;
+  white-space: normal;
 }
 
 .card-date-float {
@@ -507,6 +514,7 @@ section { padding: clamp(70px, 9vw, 120px) clamp(20px, 5vw, 72px); }
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .btn-card {

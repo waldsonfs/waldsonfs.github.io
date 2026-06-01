@@ -44,6 +44,26 @@ function getEventMonths(ev) {
   return [...new Set((ev.calDays || []).map(d => d.month))];
 }
 
+function isDefaultFilter(value) {
+  return normalizar(value) === 'todos';
+}
+
+function sameText(a, b) {
+  return normalizar(a) === normalizar(b);
+}
+
+function includesText(texto, trecho) {
+  return normalizar(texto).includes(normalizar(trecho));
+}
+
+function hasActiveFilter() {
+  return Boolean(state.query.trim())
+    || !isDefaultFilter(state.categoria)
+    || !isDefaultFilter(state.tipo)
+    || !isDefaultFilter(state.mes)
+    || !isDefaultFilter(state.local);
+}
+
 function getFilterOptions(key) {
   if (key === 'categoria') return ['Todos', ...new Set(EVENTOS.map(ev => ev.categoria))].sort((a, b) => a === 'Todos' ? -1 : b === 'Todos' ? 1 : a.localeCompare(b));
   if (key === 'tipo') return ['Todos', ...new Set(EVENTOS.map(ev => ev.tipo))].sort((a, b) => a === 'Todos' ? -1 : b === 'Todos' ? 1 : a.localeCompare(b));
@@ -57,10 +77,10 @@ function eventMatches(ev) {
     ev.nome, ev.categoria, ev.tipo, ev.local, ev.bairro, ev.desc, ev.dataTexto, ...(ev.tags || [])
   ].join(' '));
   const matchesQuery = !state.query || haystack.includes(normalizar(state.query));
-  const matchesCategory = state.categoria === 'Todos' || ev.categoria === state.categoria;
-  const matchesType = state.tipo === 'Todos' || ev.tipo === state.tipo;
-  const matchesMonth = state.mes === 'Todos' || getEventMonths(ev).includes(Number(state.mes));
-  const matchesLocal = state.local === 'Todos' || ev.bairro === state.local || ev.local.includes(state.local);
+  const matchesCategory = isDefaultFilter(state.categoria) || sameText(ev.categoria, state.categoria);
+  const matchesType = isDefaultFilter(state.tipo) || sameText(ev.tipo, state.tipo);
+  const matchesMonth = isDefaultFilter(state.mes) || getEventMonths(ev).includes(Number(state.mes));
+  const matchesLocal = isDefaultFilter(state.local) || sameText(ev.bairro, state.local) || includesText(ev.local, state.local);
   return matchesQuery && matchesCategory && matchesType && matchesMonth && matchesLocal;
 }
 
@@ -100,7 +120,7 @@ function cardTemplate(ev) {
         </div>
         <div class="card-actions">
           <button class="btn-card" type="button" data-open-event="${ev.id}">Saiba mais</button>
-          <span class="badge">${ev.dataTexto.split(' ')[0]}</span>
+          <span class="badge badge-date">${ev.dataTexto}</span>
         </div>
       </div>
     </article>
@@ -113,7 +133,8 @@ function renderEvents() {
 
   const all = filteredEvents();
   const isDedicatedPage = document.body.dataset.page === 'eventos';
-  const list = isDedicatedPage ? all.slice(0, state.visibleCount) : all.filter(ev => ev.destaque).slice(0, 6);
+  const shouldShowFilteredResults = isDedicatedPage || hasActiveFilter();
+  const list = shouldShowFilteredResults ? all.slice(0, state.visibleCount) : all.filter(ev => ev.destaque).slice(0, 6);
 
   grids.forEach(grid => {
     grid.innerHTML = list.length ? list.map(cardTemplate).join('') : '<p class="empty-state">Nenhum evento encontrado com os filtros selecionados.</p>';

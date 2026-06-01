@@ -1,5 +1,5 @@
 /* Descubra Diamantina - dados de eventos.
-   Algumas festas tradicionais variam conforme calendário liturgico ou divulgação municipal.
+   Algumas festas tradicionais variam conforme calendário litúrgico ou divulgação municipal.
    O campo observação informa quando a data é uma referência anual ou depende de programação oficial. */
 const EVENTOS = [
   {
@@ -222,10 +222,10 @@ const EVENTOS = [
     dataTexto: 'Domingos de temporada',
     data: 'Domingos em fins de semana de programação cultural',
     horario: '10h',
-    local: 'Solar de Cultura Arte Miúda, Rua da Gloria, 252',
+    local: 'Solar de Cultura Arte Miúda, Rua da Glória, 252',
     bairro: 'Centro Histórico',
     img: './.imagens/catedral.png',
-    tags: ['infantil', 'seresta', 'familia', 'arte miuda'],
+    tags: ['infantil', 'seresta', 'família', 'arte miúda'],
     coordenadas: { lat: -18.2432, lng: -43.5997 },
     desc: 'Apresentação afetiva para famílias, unindo música, memória e formação cultural.',
     descCompleta: 'O Sarau Arte Miúda cria uma ponte entre a tradição musical de Diamantina e novos públicos. É uma atividade leve, recomendada para famílias e visitantes interessados na cultura da seresta.',
@@ -344,7 +344,7 @@ const EVENTOS = [
       'A procissão pelas ruas de pedra reforça a experiência patrimonial.'
     ],
     dicas: [
-      { titulo: 'Fotografia', texto: 'Respeite os momentos liturgicos e evite flash durante celebrações.' }
+      { titulo: 'Fotografia', texto: 'Respeite os momentos litúrgicos e evite flash durante celebrações.' }
     ],
     calDays: [{ month: 7, day: 16 }]
   },
@@ -370,7 +370,7 @@ const EVENTOS = [
       'A Catedral é um dos principais marcos urbanos de Diamantina.'
     ],
     dicas: [
-      { titulo: 'Circulacao', texto: 'Durante procissões, prefira deslocamentos a pe.' }
+      { titulo: 'Circulação', texto: 'Durante procissões, prefira deslocamentos a pé.' }
     ],
     calDays: [{ month: 9, day: 15 }]
   },
@@ -396,7 +396,7 @@ const EVENTOS = [
       'A noite diamantinense ganha força em fins de semana de música.'
     ],
     dicas: [
-      { titulo: 'Noite', texto: 'Planeje retorno a pe ou por transporte local se estiver hospedado fora do centro.' }
+      { titulo: 'Noite', texto: 'Planeje retorno a pé ou por transporte local se estiver hospedado fora do centro.' }
     ],
     calDays: [{ month: 9, day: 18 }, { month: 9, day: 19 }, { month: 9, day: 20 }]
   },
@@ -448,7 +448,7 @@ const EVENTOS = [
       'Restaurantes e pequenas experiências completam o roteiro.'
     ],
     dicas: [
-      { titulo: 'Natureza', texto: 'Leve agua, protetor solar e respeite orientações ambientais.' }
+      { titulo: 'Natureza', texto: 'Leve água, protetor solar e respeite orientações ambientais.' }
     ],
     calDays: [{ month: 6, day: 21 }, { month: 7, day: 19 }, { month: 8, day: 16 }, { month: 9, day: 27 }, { month: 10, day: 18 }]
   },
@@ -458,7 +458,7 @@ const EVENTOS = [
     categoria: 'Esportivo',
     tipo: 'Turismo',
     dataTexto: 'Julho a novembro 2026',
-    data: 'Saidas guiadas em fins de semana',
+    data: 'Saídas guiadas em fins de semana',
     horario: '7h',
     local: 'Distrito de Conselheiro Mata e Caminho dos Escravos',
     bairro: 'Conselheiro Mata',
@@ -523,7 +523,7 @@ const EVENTOS = [
     curiosidades: [
       'A cidade tem relação histórica com bandas, serestas e formação musical.',
       'Shows abertos aproximam moradores e visitantes.',
-      'O nome remete ao simbolo histórico mais conhecido de Diamantina.'
+      'O nome remete ao símbolo histórico mais conhecido de Diamantina.'
     ],
     dicas: [
       { titulo: 'Lugar', texto: 'Prefira chegar cedo para escolher bom ponto de visão.' }
@@ -537,7 +537,7 @@ const EVENTOS = [
     tipo: 'Tradicional',
     dataTexto: '21 a 28 mar 2027',
     data: 'Semana Santa de 2027',
-    horario: 'Celebracoes pela manhã, tarde e noite',
+    horario: 'Celebrações pela manhã, tarde e noite',
     local: 'Catedral Metropolitana, igrejas e ruas históricas',
     bairro: 'Centro Histórico',
     img: './.imagens/semana santa.png',
@@ -549,11 +549,11 @@ const EVENTOS = [
     observação: 'Próxima edição futura usada para planejamento turístico; confirme a programação paroquial oficial antes da viagem.',
     curiosidades: [
       'Os ritos ocupam igrejas e ruas de pedra do conjunto histórico.',
-      'A iluminacao por velas cria uma das cenas mais fotografadas da cidade.',
-      'A celebração integra fe, arte sacra e memória coletiva.'
+      'A iluminação por velas cria uma das cenas mais fotografadas da cidade.',
+      'A celebração integra fé, arte sacra e memória coletiva.'
     ],
     dicas: [
-      { titulo: 'Respeito', texto: 'Durante os ritos, mantenha silencio e preserve a circulação das procissões.' }
+      { titulo: 'Respeito', texto: 'Durante os ritos, mantenha silêncio e preserve a circulação das procissões.' }
     ],
     calDays: [
       { year: 2027, month: 3, day: 21 }, { year: 2027, month: 3, day: 25 },
@@ -567,24 +567,24 @@ const EVENTOS = [
     categoria: 'Religioso',
     tipo: 'Tradicional',
     dataTexto: '16 mai 2027',
-    data: 'Domingo de Pentecostes, 50 dias apos a Pascoa',
+    data: 'Domingo de Pentecostes, 50 dias após a Páscoa',
     horario: 'Cortejo e celebrações a partir da manhã',
     local: 'Catedral Metropolitana e Praça do Mercado Velho',
     bairro: 'Centro Histórico',
     img: './.imagens/catedral.png',
-    tags: ['divino', 'bolo de arroz', 'procissão', 'patrimônio imatérial'],
+    tags: ['divino', 'bolo de arroz', 'procissão', 'patrimônio imaterial'],
     coordenadas: { lat: -18.2416, lng: -43.6027 },
     desc: 'Festa de fé, cortejo, música, símbolos do Divino e distribuição do tradicional bolo de arroz.',
-    descCompleta: 'A Festa do Divino Espírito Santo é patrimônio cultural imatérial de Diamantina. A celebração envolve novena, coroação, procissão, bandas, personagens tradicionais e o modo de fazer do bolo de arroz.',
+    descCompleta: 'A Festa do Divino Espírito Santo é patrimônio cultural imaterial de Diamantina. A celebração envolve novena, coroação, procissão, bandas, personagens tradicionais e o modo de fazer do bolo de arroz.',
     turismo: 'Acompanhe cortejos com respeito e experimente o bolo de arroz, símbolo afetivo da festa.',
     observação: 'Próxima edição futura: domingo de Pentecostes de 2027.',
     curiosidades: [
       'A festa acontece no domingo de Pentecostes.',
-      'O modo de fazer o bolo de arroz também e referência cultural local.',
-      'A manifestacao tem registros históricos desde o seculo XIX.'
+      'O modo de fazer o bolo de arroz também é referência cultural local.',
+      'A manifestação tem registros históricos desde o século XIX.'
     ],
     dicas: [
-      { titulo: 'Cultura viva', texto: 'Observe indumentarias, bandeiras e músicas como parte do patrimônio imatérial.' }
+      { titulo: 'Cultura viva', texto: 'Observe indumentárias, bandeiras e músicas como parte do patrimônio imaterial.' }
     ],
     calDays: [{ year: 2027, month: 5, day: 16 }]
   },
@@ -592,9 +592,9 @@ const EVENTOS = [
     id: 22,
     nome: 'Eventos Culturais da UFVJM',
     categoria: 'Cultural',
-    tipo: 'Universitario',
+    tipo: 'Universitário',
     dataTexto: 'Agosto a novembro 2026',
-    data: 'Programação academica e cultural semestral',
+    data: 'Programação acadêmica e cultural semestral',
     horario: 'Manhã, tarde e noite',
     local: 'Campus JK - UFVJM',
     bairro: 'Campus JK',
