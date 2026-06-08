@@ -16,12 +16,31 @@ const CATEGORY_CLASS = {
   Turismo: '#2f6d86'
 };
 
+const ACCESSIBILITY_META = {
+  accessible: {
+    label: 'Acessível',
+    description: 'Acesso nivelado ou com rampas, boa circulação e melhor apoio para idosos e pessoas com mobilidade reduzida.',
+    className: 'accessible'
+  },
+  partial: {
+    label: 'Acessibilidade Parcial',
+    description: 'Possui alguns recursos de acessibilidade, mas pode exigir atenção em trechos irregulares ou com pequenos desníveis.',
+    className: 'partial'
+  },
+  limited: {
+    label: 'Acessibilidade Limitada',
+    description: 'Pode incluir escadas, ladeiras acentuadas, trilhas ou terrenos irregulares com dificuldade significativa de acesso.',
+    className: 'limited'
+  }
+};
+
 const state = {
   query: '',
   categoria: 'Todos',
   tipo: 'Todos',
   mes: 'Todos',
   local: 'Todos',
+  accessibility: [],
   visibleCount: 9,
   selectedDay: null,
   calDate: new Date(2026, 5, 1)
@@ -56,12 +75,26 @@ function includesText(texto, trecho) {
   return normalizar(texto).includes(normalizar(trecho));
 }
 
+function getAccessibilityMeta(key) {
+  return ACCESSIBILITY_META[key] || ACCESSIBILITY_META.partial;
+}
+
+function getAccessibilityLabel(key) {
+  return getAccessibilityMeta(key).label;
+}
+
+function AccessibilityTag(key) {
+  const meta = getAccessibilityMeta(key);
+  return `<span class="accessibility-tag ${meta.className}" title="${meta.description}">${meta.label}</span>`;
+}
+
 function hasActiveFilter() {
   return Boolean(state.query.trim())
     || !isDefaultFilter(state.categoria)
     || !isDefaultFilter(state.tipo)
     || !isDefaultFilter(state.mes)
-    || !isDefaultFilter(state.local);
+    || !isDefaultFilter(state.local)
+    || state.accessibility.length > 0;
 }
 
 function getFilterOptions(key) {
@@ -81,7 +114,8 @@ function eventMatches(ev) {
   const matchesType = isDefaultFilter(state.tipo) || sameText(ev.tipo, state.tipo);
   const matchesMonth = isDefaultFilter(state.mes) || getEventMonths(ev).includes(Number(state.mes));
   const matchesLocal = isDefaultFilter(state.local) || sameText(ev.bairro, state.local) || includesText(ev.local, state.local);
-  return matchesQuery && matchesCategory && matchesType && matchesMonth && matchesLocal;
+  const matchesAccessibility = !state.accessibility.length || state.accessibility.includes(ev.accessibility || 'partial');
+  return matchesQuery && matchesCategory && matchesType && matchesMonth && matchesLocal && matchesAccessibility;
 }
 
 function filteredEvents() {
@@ -108,6 +142,7 @@ function cardTemplate(ev) {
         <div class="badge-row">
           <span class="badge" style="border-color:${color};color:#fff;background:${color}">${ev.categoria}</span>
           <span class="badge">${ev.tipo}</span>
+          ${AccessibilityTag(ev.accessibility)}
         </div>
         <div class="card-date-float">${ev.dataTexto}</div>
       </div>
@@ -145,6 +180,11 @@ function renderEvents() {
     meta.textContent = `${all.length} evento${all.length === 1 ? '' : 's'} encontrado${all.length === 1 ? '' : 's'}`;
   }
 
+  const notice = document.querySelector('[data-accessibility-notice]');
+  if (notice) {
+    notice.hidden = false;
+  }
+
   const loadMore = document.querySelector('[data-load-more]');
   if (loadMore) {
     loadMore.hidden = !isDedicatedPage || state.visibleCount >= all.length;
@@ -166,6 +206,16 @@ function setupFilters() {
   document.querySelectorAll('[data-filter]').forEach(select => {
     select.addEventListener('change', e => {
       state[e.target.dataset.filter] = e.target.value;
+      state.visibleCount = 9;
+      renderEvents();
+      renderCalendar();
+      resetCalendarPreview();
+    });
+  });
+
+  document.querySelectorAll('[data-accessibility-filter]').forEach(input => {
+    input.addEventListener('change', () => {
+      state.accessibility = [...document.querySelectorAll('[data-accessibility-filter]:checked')].map(el => el.value);
       state.visibleCount = 9;
       renderEvents();
       renderCalendar();
@@ -296,6 +346,10 @@ function openModal(id) {
       </div>
       <div class="modal-body">
         <div>
+          <div class="modal-accessibility">
+            ${AccessibilityTag(ev.accessibility)}
+            <p>${getAccessibilityMeta(ev.accessibility).description}</p>
+          </div>
           <p class="modal-desc">${ev.descCompleta}</p>
           <div class="modal-box">
             <h3>Curiosidades</h3>
@@ -310,6 +364,7 @@ function openModal(id) {
           <div class="info-pill"><strong>Data</strong>${ev.data}</div>
           <div class="info-pill"><strong>Horário</strong>${ev.horario}</div>
           <div class="info-pill"><strong>Local</strong>${ev.local}</div>
+          <div class="info-pill"><strong>Acessibilidade</strong>${getAccessibilityLabel(ev.accessibility)}</div>
           <div class="info-pill"><strong>Turismo</strong>${ev.turismo}</div>
           ${ev.observação ? `<div class="info-pill"><strong>Observação</strong>${ev.observação}</div>` : ''}
           ${ev.coordenadas ? `<a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps?q=${ev.coordenadas.lat},${ev.coordenadas.lng}">Abrir mapa</a>` : ''}

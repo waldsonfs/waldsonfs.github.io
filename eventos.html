@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eventos em Diamantina | Descubra Diamantina</title>
-  <meta name="description" content="Agenda completa de eventos culturais, religiosos, gastronômicos, musicais e turísticos de Diamantina.">
+  <meta name="description"
+    content="Agenda completa de eventos culturais, religiosos, gastronômicos, musicais e turísticos de Diamantina.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body data-page="eventos">
   <header class="site-header solid" data-header>
     <a class="logo" href="DescubraDiamantina.html">Descubra Diamantina</a>
@@ -47,7 +52,8 @@
       <div class="fade-in">
         <span class="eyebrow">Agenda completa 2026</span>
         <h1>Eventos de Diamantina</h1>
-        <p>Pesquise, filtre e planeje sua experiência entre festas religiosas, música nas ruas, festivais, gastronomia, artesanato, trilhas e roteiros culturais.</p>
+        <p>Pesquise, filtre e planeje sua experiência entre festas religiosas, música nas ruas, festivais, gastronomia,
+          artesanato, trilhas e roteiros culturais.</p>
       </div>
     </section>
 
@@ -55,12 +61,17 @@
       <div class="section-header fade-in">
         <span class="section-tag">Busca avançada</span>
         <h2 class="section-title">Encontre sua experiência</h2>
-        <p class="section-copy">Use filtros por categoria, mês e local. A busca considera nome, tags, descrição e espaços da cidade.</p>
+        <p class="section-copy">Use filtros por categoria, mês e local. A busca considera nome, tags, descrição e
+          espaços da cidade.</p>
       </div>
 
       <div class="toolbar fade-in" aria-label="Filtros de eventos">
         <label class="search-field">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.3-4.3"></path>
+          </svg>
           <input type="search" data-search placeholder="Buscar Vesperata, Mercado Velho, trilha...">
         </label>
         <select class="select-field" data-filter="categoria" aria-label="Filtrar por categoria"></select>
@@ -68,6 +79,27 @@
         <select class="select-field" data-filter="mes" aria-label="Filtrar por mês"></select>
         <select class="select-field" data-filter="local" aria-label="Filtrar por local"></select>
       </div>
+      <div class="accessibility-filter fade-in" aria-label="Filtro de acessibilidade">
+        <span class="accessibility-filter-label">Filtrar por acessibilidade</span>
+        <div class="accessibility-options">
+          <label class="accessibility-option">
+            <input type="checkbox" data-accessibility-filter value="accessible">
+            <span>Acessível</span>
+          </label>
+          <label class="accessibility-option">
+            <input type="checkbox" data-accessibility-filter value="partial">
+            <span>Acessibilidade Parcial</span>
+          </label>
+          <label class="accessibility-option">
+            <input type="checkbox" data-accessibility-filter value="limited">
+            <span>Acessibilidade Limitada</span>
+          </label>
+        </div>
+      </div>
+      <p class="accessibility-note fade-in" data-accessibility-notice>
+        A classificação de acessibilidade é informativa e pode variar conforme a estrutura temporária de cada evento ou
+        local.
+      </p>
       <p class="results-meta" data-results-meta></p>
       <div class="events-grid" data-events-grid></div>
       <div class="load-more-wrap">
@@ -79,7 +111,8 @@
       <div class="section-header fade-in">
         <span class="section-tag">Calendário visual</span>
         <h2 class="section-title">Veja a agenda por data</h2>
-        <p class="section-copy">Os mesmos filtros também reorganizam o calendário, ajudando a enxergar os melhores fins de semana para viajar.</p>
+        <p class="section-copy">Os mesmos filtros também reorganizam o calendário, ajudando a enxergar os melhores fins
+          de semana para viajar.</p>
       </div>
       <div class="calendar-layout fade-in">
         <div class="calendar-wrap">
@@ -118,4 +151,5 @@
   <script src="eventos-data.js"></script>
   <script src="eventos-app.js"></script>
 </body>
+
 </html>
