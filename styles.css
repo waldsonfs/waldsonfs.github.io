@@ -183,7 +183,7 @@ button {
   padding: 2rem;
   background:
     linear-gradient(135deg, rgba(7, 26, 47, .96) 0%, rgba(7, 26, 47, .88) 50%, rgba(104, 31, 43, .92) 100%),
-    url('./.imagens/Diamantina1.png') center/cover;
+    url('./imagens/Diamantina1.png') center/cover;
   opacity: 0;
   pointer-events: none;
   transform: translateY(-100%);
@@ -682,7 +682,7 @@ section {
 .calendar-section {
   background:
     linear-gradient(180deg, rgba(247, 241, 230, .9), rgba(239, 228, 209, .9)),
-    url('./.imagens/catedral.png') center/cover fixed;
+    url('./imagens/catedral.png') center/cover fixed;
 }
 
 .calendar-layout {
@@ -1054,7 +1054,7 @@ section {
   color: #fff;
   background:
     linear-gradient(90deg, rgba(7, 26, 47, .92), rgba(7, 26, 47, .52)),
-    url('./.imagens/Vesperata.png') center/cover;
+    url('./imagens/Vesperata.png') center/cover;
 }
 
 .page-hero h1 {
@@ -1184,7 +1184,7 @@ section {
   z-index: -2;
   background:
     linear-gradient(90deg, rgba(30, 58, 95, .92), rgba(30, 58, 95, .54)),
-    url('./.imagens/Diamantina2.png') center/cover;
+    url('./imagens/Diamantina2.png') center/cover;
 }
 
 .partner-hero::after {
@@ -1317,7 +1317,7 @@ section {
   color: #fff;
   background:
     linear-gradient(145deg, rgba(30, 58, 95, .94), rgba(46, 125, 50, .88)),
-    url('./.imagens/catedral.png') center/cover;
+    url('./imagens/catedral.png') center/cover;
 }
 
 .solution-panel h3,
@@ -1453,7 +1453,7 @@ section {
   color: #fff;
   background:
     linear-gradient(120deg, rgba(30, 58, 95, .94), rgba(46, 125, 50, .86)),
-    url('./.imagens/Vesperata.png') center/cover;
+    url('./imagens/Vesperata.png') center/cover;
 }
 
 .impact-quotes {
