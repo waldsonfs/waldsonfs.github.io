@@ -230,6 +230,19 @@ function setupFilters() {
       renderEvents();
     });
   }
+
+  // Toggle filter legend
+  const legendToggle = document.querySelector('.filter-legend-toggle');
+  if (legendToggle) {
+    legendToggle.addEventListener('click', e => {
+      const isExpanded = legendToggle.getAttribute('aria-expanded') === 'true';
+      legendToggle.setAttribute('aria-expanded', !isExpanded);
+      const content = document.getElementById('filter-help');
+      if (content) {
+        content.hidden = isExpanded;
+      }
+    });
+  }
 }
 
 function getEventsOnDay(month0, day) {

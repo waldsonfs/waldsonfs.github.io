@@ -21,11 +21,8 @@
     <nav class="nav-links" aria-label="Navegação principal">
       <a href="index.html">Início</a>
       <a class="active" href="eventos.html">Eventos</a>
-      <a href="#calendario">Calendário</a>
-      <a href="DescubraDiamantina.html#cultura">Cultura</a>
-      <a href="DescubraDiamantina.html#gastronomia">Gastronomia</a>
-      <a href="DescubraDiamantina.html#turismo">Turismo</a>
-      <a href="DescubraDiamantina.html#sobre">Sobre</a>
+      <a href="eventos.html#calendario">Calendário</a>
+      <a href="index.html#sobre">Sobre</a>
       <a href="seja-parceiro.html">Seja Parceiro</a>
       <a href="#contato">Contato</a>
     </nav>
@@ -38,9 +35,6 @@
       <a href="index.html">Início</a>
       <a href="eventos.html">Eventos</a>
       <a href="#calendario">Calendário</a>
-      <a href="index.html#cultura">Cultura</a>
-      <a href="index.html#gastronomia">Gastronomia</a>
-      <a href="index.html#turismo">Turismo</a>
       <a href="index.html#sobre">Sobre</a>
       <a href="seja-parceiro.html">Seja Parceiro</a>
       <a href="#contato">Contato</a>
@@ -72,12 +66,41 @@
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.3-4.3"></path>
           </svg>
-          <input type="search" data-search placeholder="Buscar Vesperata, Mercado Velho, trilha...">
+          <input type="search" data-search placeholder="Buscar Vesperata, Mercado Velho, trilha..."
+            title="Busca por nome do evento, local ou tags">
         </label>
-        <select class="select-field" data-filter="categoria" aria-label="Filtrar por categoria"></select>
-        <select class="select-field" data-filter="tipo" aria-label="Filtrar por tipo de evento"></select>
-        <select class="select-field" data-filter="mes" aria-label="Filtrar por mês"></select>
-        <select class="select-field" data-filter="local" aria-label="Filtrar por local"></select>
+        <select class="select-field" data-filter="categoria" aria-label="Filtrar por categoria"
+          title="Escolha o tipo de evento: Música, Religioso, Cultural, Festival, etc."></select>
+        <select class="select-field" data-filter="tipo" aria-label="Filtrar por tipo de evento"
+          title="Tipo do evento: Festa, Show, Procissão, Trilha, etc."></select>
+        <select class="select-field" data-filter="mes" aria-label="Filtrar por mês"
+          title="Selecione o mês para ver eventos disponíveis"></select>
+        <select class="select-field" data-filter="local" aria-label="Filtrar por local"
+          title="Filtre por bairro ou local específico da cidade"></select>
+      </div>
+
+      <div class="filter-legend fade-in">
+        <button class="filter-legend-toggle" type="button" aria-expanded="false" aria-controls="filter-help">
+          💡 Dicas de filtros
+        </button>
+        <div id="filter-help" class="filter-legend-content" hidden>
+          <div class="legend-item">
+            <strong>🔍 Busca:</strong> Procure por nome do evento, local, tipo ou qualquer palavra relacionada
+          </div>
+          <div class="legend-item">
+            <strong>🎭 Categoria:</strong> Tipo de experiência (Música, Religioso, Cultural, Gastronômico, Festival,
+            etc.)
+          </div>
+          <div class="legend-item">
+            <strong>📋 Tipo:</strong> Formato do evento (Festa, Show, Procissão, Trilha, Artesanato, etc.)
+          </div>
+          <div class="legend-item">
+            <strong>📅 Mês:</strong> Escolha o período para planejar sua viagem
+          </div>
+          <div class="legend-item">
+            <strong>📍 Local:</strong> Filtre por bairro ou região da cidade
+          </div>
+        </div>
       </div>
       <div class="accessibility-filter fade-in" aria-label="Filtro de acessibilidade">
         <span class="accessibility-filter-label">Filtrar por acessibilidade</span>
