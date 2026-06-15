@@ -1498,10 +1498,10 @@ section {
 }
 
 .partner-cta h2 {
-  max-width: 760px;
+  max-width: 700px;
   font-family: 'Montserrat', Arial, sans-serif;
   font-weight: 700;
-  font-size: clamp(2.4rem, 5.5vw, 5rem);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
   line-height: 1.05;
 }
 
@@ -1719,4 +1719,68 @@ section {
     min-height: 260px;
     height: 260px;
   }
+}
+
+.planned-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.planned-features>div {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .08);
+}
+
+@media (max-width: 900px) {
+  .planned-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .planned-features {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cta-plan-card {
+  background: rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255, 255, 255, .15);
+  border-radius: 18px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.plan-badge {
+  display: inline-block;
+  padding: .4rem .9rem;
+  border-radius: 999px;
+  background: #F7C267;
+  color: #1E3A5F;
+  font-size: .8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.cta-plan-card h3 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.cta-plan-card h3 span {
+  font-size: 1rem;
+}
+
+.cta-plan-card ul {
+  list-style: none;
+  display: grid;
+  gap: .8rem;
+}
+
+.cta-plan-card li {
+  color: rgba(255, 255, 255, .9);
 }
