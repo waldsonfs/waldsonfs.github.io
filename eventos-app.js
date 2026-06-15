@@ -383,6 +383,37 @@ function openModal(id) {
             <p>${getAccessibilityMeta(ev.accessibility).description}</p>
           </div>
           <p class="modal-desc">${ev.descCompleta}</p>
+         ${ev.parceiro ? `
+<div class="partner-box">
+  <span class="partner-badge">
+    ⭐ Parceiro Oficial
+  </span>
+
+  <img src="${ev.parceiro.imagem}" alt="${ev.parceiro.nome}">
+
+  <h3>${ev.parceiro.nome}</h3>
+
+  <p>${ev.parceiro.descricao}</p>
+
+  <div class="partner-info">
+    <p>📍 ${ev.parceiro.distancia}</p>
+    <p>🕒 ${ev.parceiro.horario}</p>
+  </div>
+
+  <div class="partner-actions">
+    <a href="${ev.parceiro.whatsapp}" target="_blank">
+      WhatsApp
+    </a>
+
+    <a href="${ev.parceiro.instagram}" target="_blank">
+      Instagram
+    </a>
+      <a href="${ev.parceiro.cardapio}" target="_blank">
+    Cardápio
+      </a>
+  </div>
+</div>
+` : ''}
           <div class="modal-box">
             <h3>Curiosidades</h3>
             <ul>${ev.curiosidades.map(item => `<li>${item}</li>`).join('')}</ul>

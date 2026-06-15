@@ -36,7 +36,20 @@ const EVENTOS = [
       { month: 8, day: 8 }, { month: 8, day: 15 }, { month: 8, day: 29 },
       { month: 9, day: 19 }, { month: 9, day: 26 },
       { month: 10, day: 10 }, { month: 10, day: 17 }
-    ]
+    ],
+    parceiro: {
+      nome: "Café do Casario Premium",
+      categoria: "Cafeteria",
+      descricao: "Cafés especiais, quitandas mineiras e ambiente histórico a poucos metros da Vesperata.",
+      distancia: "150 metros da Rua da Quitanda",
+      horario: "08h às 23h",
+      whatsapp: "https://wa.me/5538999999999",
+      instagram: "https://instagram.com/cafedocasario",
+
+      cardapio: "./imagens/cardapio-cafe.pdf",
+
+      imagem: "./imagens/cafe-casario.png"
+    },
   },
   {
     id: 2,
@@ -637,3 +650,4 @@ const EVENTOS = [
     calDays: [{ month: 8, day: 28 }, { month: 9, day: 24 }, { month: 10, day: 22 }, { month: 11, day: 19 }]
   }
 ];
+
