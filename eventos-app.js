@@ -127,8 +127,27 @@ function renderFilterOptions() {
     const key = select.dataset.filter;
     select.innerHTML = getFilterOptions(key).map(option => {
       const value = option;
-      const label = key === 'mes' && option !== 'Todos' ? MESES[Number(option) - 1] : option;
-      return `<option value="${value}">${label}</option>`;
+      let label = option;
+
+      if (key === 'categoria' && option === 'Todos') {
+        label = 'Categoria (Todas)';
+      }
+
+      if (key === 'tipo' && option === 'Todos') {
+        label = 'Tipo (Todos)';
+      }
+
+      if (key === 'mes' && option === 'Todos') {
+        label = 'Mês (Todos)';
+      }
+
+      if (key === 'local' && option === 'Todos') {
+        label = 'Local (Todos)';
+      }
+
+      if (key === 'mes' && option !== 'Todos') {
+        label = MESES[Number(option) - 1];
+      } return `<option value="${value}">${label}</option>`;
     }).join('');
   });
 }
